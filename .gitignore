@@ -1,0 +1,4 @@
+.DS_Store
+target/*
+src/edge-site-network-test.cpp
+p2_firmware_*
