@@ -19,7 +19,7 @@ unsigned long next_time;
 void setup() {
 
   // just to test:
-  // WiFi.clearCredentials();
+  WiFi.clearCredentials();
   // WiFi.setCredentials("qq","***REMOVED***");
   // WiFi.setCredentials("external-edge-fs","123EVbest!");
 
@@ -46,15 +46,11 @@ void setup() {
         Log.error("Ethernet GPIO config error: %d", ret);
 
     } else {
-        
+
         delay(500);
         System.reset();
     }
   }
-
-  // connectivity_connect_wifi();
-  // connectivity_connect_ethernet();
-  // waitFor(connectivity_connect,60000);
 
   connectivity_init();
 
