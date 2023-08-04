@@ -10,6 +10,4 @@
     int connectivity_get_state(void);
     String connectivity_state_name(int state);
 
-    int connectivity_connect_ethernet();
-
 #endif
