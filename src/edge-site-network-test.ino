@@ -1,11 +1,15 @@
 #include "Particle.h"
 #include "Connectivity.h"
+#include "Led.h"
 
 STARTUP(BLE.selectAntenna(BleAntennaType::EXTERNAL));
 
 // does not startup connectivity only after Particle.connect() is called
 SYSTEM_MODE(SEMI_AUTOMATIC); 
 SYSTEM_THREAD(ENABLED);
+
+STARTUP(System.on(network_status, led_handle_network_events));
+STARTUP(System.on(cloud_status, led_handle_cloud_events));
 
 STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 
@@ -19,9 +23,11 @@ unsigned long next_time;
 void setup() {
 
   // just to test:
-  WiFi.clearCredentials();
+  // WiFi.clearCredentials();
   // WiFi.setCredentials("qq","***REMOVED***");
   // WiFi.setCredentials("external-edge-fs","123EVbest!");
+
+  led_init();
 
   // publish communication information to the particle cloude every 30s
 
