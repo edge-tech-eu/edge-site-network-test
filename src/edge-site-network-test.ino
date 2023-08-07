@@ -1,6 +1,7 @@
 #include "Particle.h"
 #include "Connectivity.h"
 #include "Led.h"
+#include "ResetReason.h"
 
 STARTUP(BLE.selectAntenna(BleAntennaType::EXTERNAL));
 
@@ -32,8 +33,9 @@ void setup() {
 
   led_init();
 
-  // publish communication information to the particle cloude every 30s
+  reset_reason_log();
 
+  // publish communication information to the particle cloude every 30s
   Particle.publishVitals(30); 
 
   if (!System.featureEnabled(FEATURE_ETHERNET_DETECTION)) {
