@@ -22,6 +22,9 @@ unsigned long next_time;
 
 void setup() {
 
+  Watchdog.init(WatchdogConfiguration().timeout(60s));
+  Watchdog.start();
+
   // just to test:
   // WiFi.clearCredentials();
   // WiFi.setCredentials("qq","***REMOVED***");
@@ -68,6 +71,8 @@ void loop() {
 
   unsigned long now = millis();
 
+  Watchdog.refresh();
+
   connectivity_connect();
 
   if(next_time < now) {
@@ -82,6 +87,4 @@ void loop() {
       (WiFi.ready()?"ready":"not ready"),
       (Particle.connected()?"connected":"not connected"));
   }
-
-  delay(100);
 }
