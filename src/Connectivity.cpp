@@ -9,6 +9,7 @@ bool connectivity_has_mac;
 unsigned long connectivity_time_start;
 unsigned long connectivity_time_linkup;
 unsigned long connectivity_time_connected;
+unsigned long connectivity_time_disconnected;
 
 #define CONNECTIVITY_STATE_UNKNOWN                (-1)
 #define CONNECTIVITY_ETHERNET_CONNECT               0
@@ -48,35 +49,7 @@ void connectivity_init() {
     uint8_t mac[6];
     connectivity_has_mac = (Ethernet.macAddress(mac) != 0);
 
-/*
-
-    NetworkInterfaceConfig& dns(SockAddr dns);
-    NetworkInterfaceConfig& gateway(SockAddr gateway);
-    SockAddr gateway(int family = AF_INET) const;
-    SockAddr dns(int family = AF_INET) const;
-
-
-
-    Ethernet.setConfig(NetworkInterfaceConfig()
-        .source(NetworkInterfaceConfigSource::STATIC)
-        .address({192,168,1,137}, {255,255,255,0})
-        //.gateway({192,168,1,1})
-        .dns({192,168,1,1}));
-*/
-/*
-    Ethernet.setConfig(NetworkInterfaceConfig()
-        .source(NetworkInterfaceConfigSource::STATIC)
-        .address({192,168,1,137}, {255,255,255,0})
-        .gateway({192,168,1,1})
-        .dns({192,168,1,1})
-        .dns({8,8,8,8}));
-*/
-/*
-        Ethernet.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC)
-  .address({192,168,1,137}, {255,255,255,0}).dns(particle::SockAddr {8,8,8,8})
-  .dns({8,8,8,8}));
-  */
+    connectivity_time_connected = 0;
 }
 
 int connectivity_get_state() {
@@ -106,8 +79,10 @@ bool connectivity_connect() {
 
             case CONNECTIVITY_ETHERNET_CLOUD_CONNECTED:
 
+                connectivity_time_disconnected = millis();
+
                 Log.info("Ethernet cloud disconnected (after %d s), try Ethernet",
-                   (int)((millis() - connectivity_time_connected)/1000));
+                   (int)((connectivity_time_disconnected - connectivity_time_connected)/1000));
 
                 connectivity_state = CONNECTIVITY_ETHERNET_CONNECT;
 
@@ -143,13 +118,11 @@ bool connectivity_connect() {
 
                     Log.info("Ethernet network connected in %d s",
                         (int)((connectivity_time_linkup - connectivity_time_start)/1000));
-
                     Log.info("Ethernet IP address: %s", Ethernet.localIP().toString().c_str());
                 
                     connectivity_state = CONNECTIVITY_ETHERNET_CLOUD_WAIT_CONNECTED;
 
                     Particle.keepAlive(25s);
-
                     Particle.connect();
 
                     timeouttimer_set(TIMEOUT_CLOUD_CONNECT);
@@ -179,8 +152,10 @@ bool connectivity_connect() {
 
             case CONNECTIVITY_WIFI_CLOUD_CONNECTED:
 
+                connectivity_time_disconnected = millis();
+
                 Log.info("WiFi cloud disconnected (after %d s), try Ethernet",
-                   (int)((millis() - connectivity_time_connected)/1000));
+                   (int)((connectivity_time_disconnected - connectivity_time_connected)/1000));
 
                 connectivity_state = CONNECTIVITY_ETHERNET_CONNECT;
 
@@ -216,13 +191,11 @@ bool connectivity_connect() {
 
                     Log.info("WiFi network connected in %d s",
                         (int)((connectivity_time_linkup - connectivity_time_start)/1000));
-
                     Log.info("WiFi IP address: %s", WiFi.localIP().toString().c_str());
 
                     connectivity_state = CONNECTIVITY_WIFI_CLOUD_WAIT_CONNECTED;
                     
                     Particle.keepAlive(25s);
-
                     Particle.connect();
 
                     timeouttimer_set(TIMEOUT_CLOUD_CONNECT);
@@ -253,26 +226,51 @@ bool connectivity_connect() {
 
     } else {
 
-        if(connectivity_state == CONNECTIVITY_ETHERNET_CLOUD_WAIT_CONNECTED) {
+        unsigned long new_time_connected;
 
-            connectivity_time_connected = millis();
+        switch(connectivity_state) {
 
-            Log.info("Ethernet cloud connected in %d s (link: %d s)",
-                (int)((connectivity_time_connected - connectivity_time_start)/1000),
-                (int)((connectivity_time_connected - connectivity_time_linkup)/1000));
+            case CONNECTIVITY_ETHERNET_CONNECT:
+            case CONNECTIVITY_ETHERNET_WAIT_CONNECTED:
 
-            connectivity_state = CONNECTIVITY_ETHERNET_CLOUD_CONNECTED;
-        }
+                Log.info("Weird, connected from state %s", connectivity_state_name(connectivity_state).c_str());
+            
+            case CONNECTIVITY_ETHERNET_CLOUD_WAIT_CONNECTED:
 
-        if(connectivity_state == CONNECTIVITY_WIFI_CLOUD_WAIT_CONNECTED) {
+                new_time_connected =  millis();
+                Log.info("reconnection time %d s",(int)((new_time_connected-connectivity_time_connected)/1000));
+                connectivity_time_connected = new_time_connected;
 
-            connectivity_time_connected = millis();
+                Log.info("Ethernet cloud connected in %d s (link: %d s)",
+                    (int)((connectivity_time_connected - connectivity_time_start)/1000),
+                    (int)((connectivity_time_connected - connectivity_time_linkup)/1000));
 
-            Log.info("WiFi cloud connected in %d s (link: %d s)",
-                (int)((connectivity_time_connected - connectivity_time_start)/1000),
-                (int)((connectivity_time_connected - connectivity_time_linkup)/1000));
+                connectivity_state = CONNECTIVITY_ETHERNET_CLOUD_CONNECTED;
 
-            connectivity_state = CONNECTIVITY_WIFI_CLOUD_CONNECTED;
+                break;
+
+            case CONNECTIVITY_ETHERNET_CLOUD_CONNECTED: break;
+
+            case CONNECTIVITY_WIFI_CONNECT:
+            case CONNECTIVITY_WIFI_WAIT_CONNECTED:
+            
+                Log.info("Weird, connected from state %s", connectivity_state_name(connectivity_state).c_str());
+
+            case CONNECTIVITY_WIFI_CLOUD_WAIT_CONNECTED:
+
+                new_time_connected =  millis();
+                Log.info("reconnection time %d s",(int)((new_time_connected-connectivity_time_connected)/1000));
+                connectivity_time_connected = new_time_connected;
+
+                Log.info("WiFi cloud connected in %d s (link: %d s)",
+                    (int)((connectivity_time_connected - connectivity_time_start)/1000),
+                    (int)((connectivity_time_connected - connectivity_time_linkup)/1000));
+
+                connectivity_state = CONNECTIVITY_WIFI_CLOUD_CONNECTED;
+
+                break;
+
+            case CONNECTIVITY_WIFI_CLOUD_CONNECTED: break;
         }
     }
 
