@@ -2,6 +2,7 @@
 #include "Connectivity.h"
 #include "Led.h"
 #include "ResetReason.h"
+#include "SmartMeter.h"
 
 STARTUP(BLE.selectAntenna(BleAntennaType::EXTERNAL));
 
@@ -65,6 +66,10 @@ void setup() {
 
   connectivity_init();
 
+  smart_meter_init();
+
+  smart_meter_identify();
+
   next_time = millis() + 1000;
 }
 
@@ -75,6 +80,8 @@ void loop() {
 
   Watchdog.refresh();
 
+  smart_meter_process_serial();
+  
   connectivity_connect();
 
   if(next_time < now) {
