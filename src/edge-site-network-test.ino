@@ -3,6 +3,7 @@
 #include "Led.h"
 #include "ResetReason.h"
 #include "SmartMeter.h"
+#include "RemoteLogger.h"
 
 STARTUP(BLE.selectAntenna(BleAntennaType::EXTERNAL));
 
@@ -18,7 +19,8 @@ STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 
 // serial logger on serial2
 Serial2LogHandler logHandler(115200, LOG_LEVEL_ALL);
-
+RemoteLogHandler remoteLogHandler("monitor.edgetech.nl", 8888, "network-test");
+// walter: 0a10aced202194944a004b38
 
 unsigned long next_time;
 
@@ -28,8 +30,9 @@ void setup() {
   Watchdog.start();
 
   // just to test:
-  // WiFi.clearCredentials();
+  WiFi.clearCredentials();
   // WiFi.setCredentials("qq","***REMOVED***");
+  // WiFi.setCredentials("H369A59AFB1","79DDEE7963A3");
   // WiFi.setCredentials("external-edge-fs","123EVbest!");
 
   led_init();
@@ -89,7 +92,10 @@ void loop() {
     while(next_time < now) {
       next_time += 1000;
     }
-
+    if(Particle.connected()) {
+        next_time += 30000 - 1000;
+    }
+    
     Log.info("State: %s: Ethernet: %s, WiFi: %s, Cloud: %s",
       connectivity_state_name(connectivity_get_state()).c_str(),
       (Ethernet.ready()?"ready":"not ready"),
