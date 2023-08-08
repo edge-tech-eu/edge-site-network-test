@@ -22,6 +22,9 @@ unsigned long connectivity_time_disconnected;
 #define CONNECTIVITY_WIFI_CLOUD_CONNECTED           7
 
 
+// https://en.wikipedia.org/wiki/Constrained_Application_Protocol
+
+
 String connectivity_state_name(int state) {
 
     switch(state) {
