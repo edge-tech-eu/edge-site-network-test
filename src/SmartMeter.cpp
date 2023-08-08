@@ -16,6 +16,7 @@ unsigned long telegram_end_ts;
 
 double smart_meter_v[3];
 double smart_meter_p[6];
+double smart_meter_a[3];
 
 const char *tags[] = {
     "1-0:32.7.0","1-0:52.7.0","1-0:72.7.0", // voltage
@@ -332,10 +333,18 @@ void smart_meter_process_serial() {
         unsigned long duration = telegram_end_ts - start;
 
         if(crc==crc_read) {
-            Log.info("read in %d in %d ms", telegram_index, (int) duration);
-            Log.info("v=%f, %f, %f",smart_meter_v[0],smart_meter_v[1],smart_meter_v[2]);
-            Log.info("p=%f, %f, %f",smart_meter_p[0],smart_meter_p[1],smart_meter_p[2]);
-            Log.info("p=%f, %f, %f",smart_meter_p[3],smart_meter_p[4],smart_meter_p[5]);
+
+            smart_meter_a[0] = 1000.0*(smart_meter_p[0]-smart_meter_p[3])/smart_meter_v[0];
+            smart_meter_a[1] = 1000.0*(smart_meter_p[1]-smart_meter_p[4])/smart_meter_v[1];
+            smart_meter_a[2] = 1000.0*(smart_meter_p[2]-smart_meter_p[5])/smart_meter_v[2];
+
+            Log.info("read in %d in %d ms: a=%f, %f, %f",
+                telegram_index, (int) duration,
+                smart_meter_a[0], smart_meter_a[1], smart_meter_a[2]);
+            // Log.info("a=%f, %f, %f",smart_meter_a[0],smart_meter_a[1],smart_meter_a[2]);
+            //Log.info("v=%f, %f, %f",smart_meter_v[0],smart_meter_v[1],smart_meter_v[2]);
+            //Log.info("p=%f, %f, %f",smart_meter_p[0],smart_meter_p[1],smart_meter_p[2]);
+            //Log.info("p=%f, %f, %f",smart_meter_p[3],smart_meter_p[4],smart_meter_p[5]);
         } else {
             Log.warn("bad crc read in %d in %d ms (%x = %x)", telegram_index, (int) duration, (int)crc, (int)crc_read);
         }
