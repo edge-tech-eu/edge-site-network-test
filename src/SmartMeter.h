@@ -7,14 +7,6 @@
 
 #define TELEGRAM_MAX_SIZE   3000
 
-#define TAGS          10
-#define TAGS_MIN       6
-
-#define TAG_TARIFF      9
-
-extern double smart_meter_tags[TAGS];
-extern boolean smart_meter_new_telegram;
-
 void smart_meter_init(void);
 void smart_meter_size_meter(void);
 void smart_meter_identify(void);

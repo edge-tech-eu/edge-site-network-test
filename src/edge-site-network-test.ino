@@ -73,6 +73,11 @@ void setup() {
 
   smart_meter_identify();
 
+  if(!smart_meter_is_usable()) {
+
+    Log.error("No meter!");
+  }
+
   next_time = millis() + 1000;
 }
 
@@ -83,8 +88,10 @@ void loop() {
 
   Watchdog.refresh();
 
-  smart_meter_process_serial();
-  
+  if(smart_meter_is_usable()) {
+    smart_meter_process_serial();
+  }
+
   connectivity_connect();
 
   if(next_time < now) {
@@ -92,6 +99,7 @@ void loop() {
     while(next_time < now) {
       next_time += 1000;
     }
+
     if(Particle.connected()) {
         next_time += 30000 - 1000;
     }

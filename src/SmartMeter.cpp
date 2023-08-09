@@ -18,25 +18,9 @@ double smart_meter_v[3];
 double smart_meter_p[6];
 double smart_meter_a[3];
 
-const char *tags[] = {
-    "1-0:32.7.0","1-0:52.7.0","1-0:72.7.0", // voltage
-    "1-0:21.7.0","1-0:41.7.0","1-0:61.7.0", // active power in
-    "1-0:22.7.0","1-0:42.7.0","1-0:62.7.0", // active power out
-    "0-0:96.14.0", // tariff
-    }; 
-
-
-double smart_meter_tags[TAGS];
 unsigned short crc;
 unsigned short crc_in_message;
-unsigned char state;
-unsigned char state_tag;
-unsigned int chars;
-char tag[256];
-unsigned char tag_index;
-char tag_value[256];
-unsigned char tag_value_index;
-int tags_index;
+
 unsigned char tags_found;
 
 #define STATE_LOOKING_FOR_START   0
@@ -98,6 +82,13 @@ void smart_meter_init() {
     telegram_start_ts = 0;
     telegram_end_ts = 0;
 
+    for(int i=0;i<3;i++) {
+    
+        smart_meter_v[i] = 0;
+        smart_meter_p[i] = 0;
+        smart_meter_p[i+3] = 0;
+    }
+
     Log.info("smartmeter_rx_size = %d",smartmeter_rx_size);
 }
 
@@ -111,12 +102,34 @@ boolean smart_meter_is_testmode() {
     return(dsmr_version == -1);
 }
 
+
+char smart_meter_read() {
+
+    unsigned long till = millis() + 1000;
+
+    while(till > millis()) {
+
+        int next_char = Serial2.read();
+
+        if(next_char >= 0) {
+
+            return(next_char & CHAR_MASK);
+        }
+    }
+
+    Log.error("No data!");
+
+    return(-1);
+}
+
 void smart_meter_size_meter() {
     
     unsigned char c;
     unsigned char line_index = 0;
     char line[256];
+    unsigned long till = millis() + 2000;
 
+    // read flush, for timing
     int read = Serial2.available();
     for(int i=0; i<read; i++) {
         Serial2.read();
@@ -124,54 +137,52 @@ void smart_meter_size_meter() {
 
     do {
 
-        int next_char = Serial2.read();
+        c = smart_meter_read();
+        
+        telegram_index++;
+        line[line_index++] = c;
 
-        if(next_char>=0) {
+        if(c == 10) {
 
-            c = next_char & CHAR_MASK;
-            telegram_index++;
-            line[line_index++]=c;
+            if(line_index>2) {
 
-            if(c == 10) {
+                // smartmeter ends lines with \r\n so remove also the \r
+                line[line_index-1]=0;
 
-                if(line_index>2) {
+                if(!strncmp(line,"1-3:0.2.8",9)) {
 
-                    // smartmeter ends lines with \r\n so remove also the \r
-                    line[line_index-1]=0;
+                    char *value = &line[10];
+                    char *closing = strchr(value, ')');
+                    *closing=0;
+                    dsmr_version = atoi(value);
 
-                    if(!strncmp(line,"1-3:0.2.8",9)) {
+                    tags_found++;
+                    
+                } else if(line[0]=='/') {
+                    
+                    strcpy(dsmr_meter,&line[1]);
 
-                        char *value = &line[10];
-                        char *closing = strchr(value, ')');
-                        *closing=0;
-                        dsmr_version = atoi(value);
-
-                        tags_found++;
-                        
-                    } else if(line[0]=='/') {
-                        
-                        strcpy(dsmr_meter,&line[1]);
-
-                        // testing?
-                        if(!strcmp(dsmr_meter,TEST_MODE_NAME)) {
-                            dsmr_version = -1;
-                            return;
-                        }
-
-                        tags_found++;
+                    // testing?
+                    if(!strcmp(dsmr_meter,TEST_MODE_NAME)) {
+                        dsmr_version = -1;
+                        return;
                     }
+
+                    tags_found++;
                 }
-
-                line_index = 0;
             }
 
-            if(c == '/') {
-
-                telegram_start_ts = millis();
-                telegram_index = 1;
-            }
+            line_index = 0;
         }
-    } while(c != '!');
+
+        if(c == '/') {
+
+            telegram_start_ts = millis();
+            telegram_index = 1;
+        }
+
+    } while((c != '!') && (till > millis()));
+
 
     // read crc (4x)
     Serial2.read();
@@ -189,20 +200,6 @@ void smart_meter_size_meter() {
     telegram_transmit_time = telegram_end_ts - telegram_start_ts;
 }
 
-char smart_meter_read() {
-
-    while(1==1) {
-
-        int next_char = Serial2.read();
-
-        if(next_char>=0) {
-
-            return(next_char & CHAR_MASK);
-        }
-    }
-
-    return(-1);
-}
 
 char smart_meter_read_update() {
 
@@ -219,6 +216,30 @@ char smart_meter_read_update() {
     return(-1);
 }
 
+void smart_meter_identify() {
+
+    smart_meter_size_meter();
+    
+    if(dsmr_version == 50) {
+        Log.info("SmartMeter found: %s",dsmr_meter);
+    } else {
+        Log.warn("No or incompatible SmartMeter found (%d: %s)",
+            dsmr_version, dsmr_meter);
+    }
+
+     Log.info("initial telegram size: %d (%lu ms)",
+            telegram_min_size, telegram_transmit_time);
+}
+
+
+void smart_meter_dump_stats() {
+
+      Log.info("%lu %lu %lu %u %u",
+        telegram_count, telegram_failed_count, telegram_missed_count,
+        telegram_min_size, telegram_max_size);
+}
+
+
 void smart_meter_process_serial() {
 
     if(millis() > telegram_end_ts + 1000) {
@@ -228,7 +249,7 @@ void smart_meter_process_serial() {
         unsigned short crc_read;
         unsigned char line_index = 0;
         char line[256];
-
+        
         telegram_index = 0;
         crc = 0;
 
@@ -313,6 +334,12 @@ void smart_meter_process_serial() {
           
         } while(c != '!');
 
+        if(c < 0) {
+
+            Log.error("no smartmeter data found!");
+            return;
+        }
+
         // read crc (4x)
         crc_read = from_hex(smart_meter_read());
         crc_read <<= 4;
@@ -334,9 +361,17 @@ void smart_meter_process_serial() {
 
         if(crc==crc_read) {
 
-            smart_meter_a[0] = 1000.0*(smart_meter_p[0]-smart_meter_p[3])/smart_meter_v[0];
-            smart_meter_a[1] = 1000.0*(smart_meter_p[1]-smart_meter_p[4])/smart_meter_v[1];
-            smart_meter_a[2] = 1000.0*(smart_meter_p[2]-smart_meter_p[5])/smart_meter_v[2];
+            for(int i=0; i<3; i++) {
+
+                smart_meter_p[i]-=smart_meter_p[i+3];
+                smart_meter_p[i] *= 1000.;
+
+                if((int)smart_meter_p[i] == 0) {
+                    smart_meter_a[i] = 0;
+                } else {
+                    smart_meter_a[i] = smart_meter_p[i]/smart_meter_v[i];
+                }
+           }
 
             Log.info("read in %d in %d ms: a=%f, %f, %f",
                 telegram_index, (int) duration,
@@ -350,167 +385,3 @@ void smart_meter_process_serial() {
         }
     }
 }
-
-void smart_meter_identify() {
-
-    smart_meter_size_meter();
-    
-    if(dsmr_version == 50) {
-        Log.info("SmartMeter found: %s",dsmr_meter);
-    } else {
-        Log.warn("No or incompatible SmartMeter found (%d: %s)",
-            dsmr_version, dsmr_meter);
-    }
-
-     Log.info("initial telegram size: %d (%lu ms)",
-            telegram_min_size, telegram_transmit_time);
-}
-
-
-void smart_meter_dump_stats() {
-
-      Log.info("%lu %lu %lu %u %u",
-        telegram_count, telegram_failed_count, telegram_missed_count,
-        telegram_min_size, telegram_max_size);
-}
-
-
-void smart_meter_process_serial_() {
-
-    int available = Serial2.available();
-  
-    if(available) {
-
-        while(available--) {
-
-            int next_char = Serial2.read();
-            unsigned char c = next_char & CHAR_MASK;
-
-            telegram[telegram_index++] = c;
-
-            if(state==STATE_PARSING) {
-        
-                crc16_update(&crc, c);
-
-                chars++;
-
-                if(c==10) {
-
-                    state_tag = STATE_TAG_COLLECTING;
-                    tag_index=0;
-                    tag_value_index=0;
-
-                } else if(state_tag == STATE_TAG_COLLECTING) {
-
-                    if(c=='(') {
-                    
-                        tag[tag_index] = 0;
-
-                        state_tag = STATE_TAG_SKIPPING;
-
-                        for (int i = 0; i < TAGS; i++) {
-
-                            if(!strcmp(tag,tags[i])) {
-                                state_tag = STATE_TAG_VALUE;
-                                tags_index = i;
-                                break;
-                            }
-                        }
-
-                    } else {
-
-                        tag[tag_index++] = c;
-                    }
-
-                } else if(state_tag == STATE_TAG_VALUE) {
-
-                    if(c==')') {
-
-                        tags_found++;
-                        state_tag = STATE_TAG_SKIPPING;
-                        tag_value[tag_value_index] = 0;
-                        smart_meter_tags[tags_index] = atof(tag_value);
-
-                    } else {
-
-                        tag_value[tag_value_index++] = c;
-                    }
-                }
-            }
-
-            if(c=='/') {
-
-                unsigned long now = millis();
-                if((now-telegram_start_ts) > 1100) {
-                    telegram_missed_count++;
-                }
-                telegram_start_ts = now;
-
-                state = STATE_PARSING;
-                crc = 0;
-                crc16_update(&crc, c);
-
-                chars = 1;
-
-            } else if(c=='!') {
-
-                state=STATE_CHECKING_CRC;
-                crc_in_message = 0;
-
-            } else if(state==STATE_CHECKING_CRC) {
-
-                if(c==13) {
-
-                    state = STATE_LOOKING_FOR_START;
-
-                    telegram_count++;          
-
-                    if(crc != crc_in_message) {
-
-                        telegram_failed_count++;
-
-                        int i=0;
-                        while(i<telegram_index) {
-
-                            int j=i;
-                            while((telegram[j++]!=13) && (i<telegram_index)) {
-                            }
-                            telegram[j-1]=0;
-
-                            Log.info("%s",&telegram[i]);
-
-                            i = j+1;
-                        }
-
-                    } else if(tags_found<TAGS_MIN) {
-
-                        telegram_failed_count++;
-
-                    } else {
-
-                        smart_meter_new_telegram = TRUE;
-
-                        if(chars > telegram_max_size) {
-                            telegram_max_size = chars;
-                        }
-                        
-                        if(chars < telegram_min_size) {
-                            telegram_min_size = chars;
-                        }
-                    }
-
-                    tags_found = 0;
-                    telegram_index=0;
-
-                } else {
-
-                    chars++;
-
-                    crc_in_message*=16;
-                    crc_in_message += from_hex(c);
-                }
-            }
-        }
-    }
-}
-
