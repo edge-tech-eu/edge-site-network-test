@@ -20,7 +20,9 @@ STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 // serial logger on serial2
 Serial2LogHandler logHandler(115200, LOG_LEVEL_ALL);
 RemoteLogHandler remoteLogHandler("monitor.edgetech.nl", 8888, "network-test");
-// walter: 0a10aced202194944a004b38
+
+// LEDStatus led_debug(RGB_COLOR_RED, LED_PATTERN_SOLID, LED_SPEED_SLOW, LED_PRIORITY_IMPORTANT);
+
 
 unsigned long next_time;
 
@@ -34,6 +36,10 @@ void setup() {
   // WiFi.setCredentials("qq","***REMOVED***");
   // WiFi.setCredentials("H369A59AFB1","79DDEE7963A3");
   // WiFi.setCredentials("external-edge-fs","123EVbest!");
+  // p2Site0001 0a10aced202194944a004b38
+  // walter     0a10aced202194944a004cbc
+  // filter:    0a10aced202194944a006158
+  // elrad001:  0a10aced202194944a004be0
 
   led_init();
 
@@ -41,6 +47,10 @@ void setup() {
 
   // publish communication information to the particle cloude every 30s
   Particle.publishVitals(30); 
+
+  // how do we turn ethernet off?
+  // System.disableFeature(FEATURE_ETHERNET_DETECTION);
+  // Ethernet.off();
 
   if (!System.featureEnabled(FEATURE_ETHERNET_DETECTION)) {
 

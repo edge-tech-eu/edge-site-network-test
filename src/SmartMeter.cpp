@@ -66,6 +66,7 @@ hal_usart_buffer_config_t acquireSerial2Buffer() {
 void smart_meter_init() {
 
     // serial port already opened by logger
+    // pinMode(D5,INPUT_PULLDOWN);
     // Serial2.begin(115200);
 
     telegram_index = 0;
@@ -122,12 +123,22 @@ char smart_meter_read() {
     return(-1);
 }
 
+// extern LEDStatus led_debug;
+
 void smart_meter_size_meter() {
     
     unsigned char c;
     unsigned char line_index = 0;
     char line[256];
-    unsigned long till = millis() + 2000;
+    unsigned long till = millis() + 4000;
+    int tags_found = 0;
+    int count = 0;
+    // bool toggle=true;
+
+#define TSIZE   700
+    char t[TSIZE];
+    int t_index = 0;
+
 
     // read flush, for timing
     int read = Serial2.available();
@@ -138,9 +149,19 @@ void smart_meter_size_meter() {
     do {
 
         c = smart_meter_read();
+
+        count++;
         
+        // led_debug.setActive(toggle);
+        // toggle ^= true;
+
         telegram_index++;
         line[line_index++] = c;
+
+        t[t_index++] = c;
+        if(t_index>=TSIZE) {
+            t_index = 0;
+        }
 
         if(c == 10) {
 
@@ -181,8 +202,7 @@ void smart_meter_size_meter() {
             telegram_index = 1;
         }
 
-    } while((c != '!') && (till > millis()));
-
+    } while(!((c == '!') && (tags_found >= 2)) || (till > millis()));
 
     // read crc (4x)
     Serial2.read();
@@ -198,6 +218,25 @@ void smart_meter_size_meter() {
 
     telegram_end_ts = millis();
     telegram_transmit_time = telegram_end_ts - telegram_start_ts;
+
+    Log.info("count = %d",count);
+
+    if(t_index>25) {
+        t_index=25;
+    }
+
+    for(int i=0;i<t_index;i++) {
+
+        Watchdog.refresh();
+
+        if(((int)t[i] >= 0x20) && ((int)t[i] <= 0x7e)) {
+            Log.info("[%d] %x %d '%c'",i,(int)t[i],(int)t[i],t[i]);
+        } else {
+            Log.info("[%d] %x %d",i,(int)t[i],(int)t[i]);
+        }
+        //delay(5);
+        Particle.process();
+    }
 }
 
 

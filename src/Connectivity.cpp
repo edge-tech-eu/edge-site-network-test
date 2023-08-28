@@ -51,6 +51,7 @@ void connectivity_init() {
 
     uint8_t mac[6];
     connectivity_has_mac = (Ethernet.macAddress(mac) != 0);
+    // connectivity_has_mac = false;
 
     connectivity_time_connected = 0;
 }
@@ -59,8 +60,6 @@ int connectivity_get_state() {
 
     return(connectivity_state);
 }
-
-
 
 bool connectivity_has_ethernet() {
 

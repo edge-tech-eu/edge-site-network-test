@@ -56,6 +56,11 @@ void reset_reason_log() {
             Log.info("Reset: Watchdog");
             break;
 
+        case RESET_REASON_POWER_BROWNOUT:
+
+            Log.info("Reset: Brownout");
+            break;
+
         default:
 
             Log.info("Reset: reason: %d", reset_reason_value);

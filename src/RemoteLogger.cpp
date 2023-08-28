@@ -11,7 +11,8 @@ RemoteLogHandler::RemoteLogHandler(String host, uint16_t port, String app, LogLe
 }
 
 IPAddress RemoteLogHandler::resolve(const char *host) {
-    return WiFi.resolve(host);
+
+    return(Network.resolve(host));
 }
 
 void RemoteLogHandler::log(String message) {
