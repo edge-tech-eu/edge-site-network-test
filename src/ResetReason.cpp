@@ -1,5 +1,7 @@
  #include "Particle.h"
  
+ // needs: System.enableFeature(FEATURE_RESET_INFO);
+
 /* system_defs.h
 
     RESET_REASON_NONE = 0, ///< Invalid reason code.
@@ -27,6 +29,15 @@ void reset_reason_log() {
 
     switch(reset_reason_value) {
 
+        case RESET_REASON_PANIC:
+
+            Log.info("Reset: Panic, Long wait to allow flashing");
+            delay(300000);
+
+            // Log.info("Reset: Panic, enter safe mode");
+            // System.enterSafeMode();
+            break;
+
         case RESET_REASON_UPDATE:
 
             Log.info("Reset: Flashed successfully");
@@ -48,7 +59,8 @@ void reset_reason_log() {
 
         case RESET_REASON_USER:
 
-            Log.info("Reset: software/user");
+            Log.info("Reset: software/user (%lu)", System.resetReasonData());
+
             break;
 
         case RESET_REASON_WATCHDOG:
@@ -56,6 +68,16 @@ void reset_reason_log() {
             Log.info("Reset: Watchdog");
             break;
 
+        case RESET_REASON_DFU_MODE:
+
+            Log.info("Reset: DFU");
+            break;
+
+        case RESET_REASON_POWER_DOWN:
+
+            Log.info("Reset: Power down");
+            break;
+            
         case RESET_REASON_POWER_BROWNOUT:
 
             Log.info("Reset: Brownout");
