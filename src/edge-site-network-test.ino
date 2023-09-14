@@ -134,7 +134,7 @@ void loop() {
     print_state = new_print_state;
 
     // testing: once connected restart and do again
-    if(cloudConnected) {
+    if(connectingState == CONNECTIVITY_ETHERNET_CLOUD_CONNECTED) {
 
       Log.info("Connected, restart"); 
       delay(1000);
