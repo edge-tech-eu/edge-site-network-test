@@ -5,8 +5,11 @@
 
 #define ETHERNET_BOARD_PARTICLE 0
 #define ETHERNET_BOARD_EDGE     1
-//#define ETHERNET_BOARD          ETHERNET_BOARD_PARTICLE
+#define ETHERNET_BOARD_ARGON    2
+
+// #define ETHERNET_BOARD          ETHERNET_BOARD_PARTICLE
 #define ETHERNET_BOARD          ETHERNET_BOARD_EDGE
+// #define ETHERNET_BOARD          ETHERNET_BOARD_ARGON
 
 
 STARTUP(System.enableFeature(FEATURE_RESET_INFO));
@@ -25,6 +28,9 @@ Serial1LogHandler logHandler(115200, LOG_LEVEL_ALL);
 #endif
 #if ETHERNET_BOARD == ETHERNET_BOARD_EDGE
 Serial2LogHandler logHandler(115200, LOG_LEVEL_ALL);
+#endif
+#if ETHERNET_BOARD == ETHERNET_BOARD_ARGON
+SerialLogHandler logHandler(115200, LOG_LEVEL_ALL);
 #endif
 
 unsigned long last_time;
