@@ -1,7 +1,6 @@
 #include "Particle.h"
 #include "Connectivity.h"
 #include "ResetReason.h"
-#include "RemoteLogger.h"
 #include "Util.h"
 
 #define ETHERNET_BOARD_PARTICLE 0
@@ -27,10 +26,6 @@ Serial1LogHandler logHandler(115200, LOG_LEVEL_ALL);
 #if ETHERNET_BOARD == ETHERNET_BOARD_EDGE
 Serial2LogHandler logHandler(115200, LOG_LEVEL_ALL);
 #endif
-RemoteLogHandler remoteLogHandler("monitor.edgetech.nl", 8888, "network-test");
-
-// LEDStatus led_debug(RGB_COLOR_RED, LED_PATTERN_SOLID, LED_SPEED_SLOW, LED_PRIORITY_IMPORTANT);
-
 
 unsigned long last_time;
 int print_state;
@@ -131,8 +126,7 @@ void loop() {
     print_state = new_print_state;
 
     // testing: once connected restart and do again
-    if((connectingState == CONNECTIVITY_ETHERNET_CLOUD_CONNECTED) ||
-      (connectingState == CONNECTIVITY_WIFI_CLOUD_CONNECTED)) {
+    if(cloudConnected) {
 
       Log.info("Connected, restart"); 
       delay(1000);

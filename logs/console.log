@@ -1,0 +1,102 @@
+frank@Aussimento logs % curl https://api.particle.io/v1/products/sitecontroller-preproduction-p2-16890/devices/0a10aced202194944a005484/events?access_token=9ff5da65208876d4818ecb0515c28db6e63cb407
+:ok
+
+
+
+
+
+
+
+
+
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:18:42.269Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:18:47.258Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:18:57.858Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/device/app-hash
+data: {"data":"44d130036e8557e3ef5c34a14b73aea89ca113b02d3589544d07eb9eec1711d8","ttl":60,"published_at":"2023-11-16T11:19:03.032Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/device/last_reset
+data: {"data":"power_down","ttl":60,"published_at":"2023-11-16T11:19:03.120Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/enabled
+data: {"data":"true","ttl":60,"published_at":"2023-11-16T11:19:03.212Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/forced
+data: {"data":"false","ttl":60,"published_at":"2023-11-16T11:19:03.302Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/device/diagnostics/update
+data: {"data":"{\"device\":{\"network\":{\"signal\":{\"at\":\"Wi-Fi\",\"strength\":{\"err\":-100},\"strengthv\":{\"err\":-100},\"quality\":{\"err\":-100},\"qualityv\":{\"err\":-100}},\"connection\":{\"status\":\"connected\",\"error\":0,\"disconnects\":0,\"attempts\":7,\"disconnect_reason\":\"user\"}},\"cloud\":{\"connection\":{\"status\":\"connecting\",\"error\":0,\"attempts\":1,\"disconnects\":0,\"disconnect_reason\":\"none\"},\"coap\":{\"transmit\":9,\"retransmit\":2,\"unack\":0,\"round_trip\":19089},\"publish\":{\"rate_limited\":0}},\"system\":{\"uptime\":89,\"memory\":{\"used\":169684,\"total\":3532308}}},\"service\":{\"device\":{\"status\":\"ok\"},\"cloud\":{\"uptime\":6,\"publish\":{\"sent\":2}},\"coap\":{\"round_trip\":1045}}}","ttl":60,"published_at":"2023-11-16T11:19:03.894Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/pending
+data: {"data":"false","ttl":60,"published_at":"2023-11-16T11:19:04.218Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+
+
+
+
+
+
+event: spark/status
+data: {"data":"offline","ttl":60,"published_at":"2023-11-16T11:20:17.849Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:20:22.067Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+
+
+
+event: spark/status
+data: {"data":"offline","ttl":60,"published_at":"2023-11-16T11:21:02.068Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+
+
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:21:50.387Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:21:55.401Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/status
+data: {"data":"online","ttl":60,"published_at":"2023-11-16T11:22:04.338Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/enabled
+data: {"data":"true","ttl":60,"published_at":"2023-11-16T11:22:09.641Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/forced
+data: {"data":"false","ttl":60,"published_at":"2023-11-16T11:22:09.732Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: spark/device/diagnostics/update
+data: {"data":"{\"device\":{\"network\":{\"signal\":{\"at\":\"Wi-Fi\",\"strength\":{\"err\":-100},\"strengthv\":{\"err\":-100},\"quality\":{\"err\":-100},\"qualityv\":{\"err\":-100}},\"connection\":{\"status\":\"connected\",\"error\":0,\"disconnects\":0,\"attempts\":12,\"disconnect_reason\":\"user\"}},\"cloud\":{\"connection\":{\"status\":\"connecting\",\"error\":0,\"attempts\":4,\"disconnects\":0,\"disconnect_reason\":\"none\"},\"coap\":{\"transmit\":23,\"retransmit\":37,\"unack\":1,\"round_trip\":17232},\"publish\":{\"rate_limited\":0}},\"system\":{\"uptime\":275,\"memory\":{\"used\":169716,\"total\":3532308}}},\"service\":{\"device\":{\"status\":\"ok\"},\"cloud\":{\"uptime\":5,\"publish\":{\"sent\":1}},\"coap\":{\"round_trip\":983}}}","ttl":60,"published_at":"2023-11-16T11:22:10.313Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+event: particle/device/updates/pending
+data: {"data":"false","ttl":60,"published_at":"2023-11-16T11:22:10.648Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+
+
+
+
+
+
+event: spark/status
+data: {"data":"offline","ttl":60,"published_at":"2023-11-16T11:23:24.330Z","coreid":"0a10aced202194944a005484","userid":"","version":0,"public":false,"productID":16890}
+
+
+
+
+
+
+
+
