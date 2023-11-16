@@ -19,5 +19,7 @@
     void connectivity_init(void);
     int connectivity_get_state(void);
     String connectivity_state_name(int state);
+    void connectivity_dump_stats(void);
+    bool connectivity_first_connected(void);
 
 #endif

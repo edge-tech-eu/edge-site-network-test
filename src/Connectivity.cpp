@@ -8,15 +8,12 @@
 int connectivity_state;
 int connectivity_state_previous;
 bool connectivity_has_mac;
+int connectivity_reconnects;
 
 unsigned long connectivity_time_start;
 unsigned long connectivity_time_linkup;
 unsigned long connectivity_time_connected;
 unsigned long connectivity_time_disconnected;
-
-
-// https://en.wikipedia.org/wiki/Constrained_Application_Protocol
-
 
 unsigned long timeout_start;
 unsigned int timeout_delta;
@@ -72,6 +69,11 @@ void connectivity_init() {
     connectivity_time_connected = 0;
 }
 
+bool connectivity_first_connected() {
+
+    return(connectivity_reconnects == 1);
+}
+
 int connectivity_get_state() {
 
     return(connectivity_state);
@@ -83,6 +85,19 @@ bool connectivity_has_ethernet() {
 }
 
 bool connectivity_has_wifi() {
+
+    WiFiAccessPoint ap[5];
+    int found = WiFi.getCredentials(ap, 5);
+
+    Log.info("found %d credentials",found);
+
+    for (int i = 0; i < found; i++) {
+        Log.info("ssid: %s", ap[i].ssid);
+        // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2, WLAN_SEC_WPA_ENTERPRISE, WLAN_SEC_WPA2_ENTERPRISE
+        // Log.info("security: %d", (int) ap[i].security);
+        // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP or WLAN_CIPHER_AES_TKIP
+        // Log.info("cipher: %d", (int) ap[i].cipher);
+    }
 
     return(WiFi.hasCredentials());
 }
@@ -293,6 +308,8 @@ bool connectivity_connect() {
                 reconnect_time = (int)((new_time_connected-connectivity_time_connected)/1000);
                 connectivity_time_connected = new_time_connected;
 
+                connectivity_reconnects++;
+
                 Log.info("Ethernet cloud connected in %d s (link: %d s), (re)connected in %d s",
                     (int)((connectivity_time_connected - connectivity_time_start)/1000),
                     (int)((connectivity_time_linkup - connectivity_time_start)/1000),
@@ -320,6 +337,8 @@ bool connectivity_connect() {
                 reconnect_time = (int)((new_time_connected-connectivity_time_connected)/1000);
                 connectivity_time_connected = new_time_connected;
 
+                connectivity_reconnects++;
+                
                 Log.info("WiFi cloud connected in %d s (link: %d s), (re)connected in %d s",
                     (int)((connectivity_time_connected - connectivity_time_start)/1000),
                     (int)((connectivity_time_linkup - connectivity_time_start)/1000),
@@ -345,6 +364,12 @@ bool connectivity_connect() {
     }
 
     return(status);
+}
+
+void connectivity_dump_stats(void) {
+
+    Log.info("State: '%s', reconnects: %d",
+            connectivity_state_name(connectivity_state).c_str(),connectivity_reconnects);
 }
 
 #pragma GCC diagnostic pop

@@ -31,11 +31,13 @@ void reset_reason_log() {
 
         case RESET_REASON_PANIC:
 
-            Log.info("Reset: Panic, Long wait to allow flashing");
+            Log.info("Reset: Panic");
+
+            // System.enterSafeMode();
+
+            // cloud flash safety
             delay(300000);
 
-            // Log.info("Reset: Panic, enter safe mode");
-            // System.enterSafeMode();
             break;
 
         case RESET_REASON_UPDATE:

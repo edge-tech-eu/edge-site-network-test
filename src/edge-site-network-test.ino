@@ -1,13 +1,13 @@
 #include "Particle.h"
 #include "Connectivity.h"
-#include "Led.h"
 #include "ResetReason.h"
 #include "RemoteLogger.h"
 #include "Util.h"
 
 #define ETHERNET_BOARD_PARTICLE 0
 #define ETHERNET_BOARD_EDGE     1
-#define ETHERNET_BOARD          ETHERNET_BOARD_PARTICLE
+//#define ETHERNET_BOARD          ETHERNET_BOARD_PARTICLE
+#define ETHERNET_BOARD          ETHERNET_BOARD_EDGE
 
 
 STARTUP(System.enableFeature(FEATURE_RESET_INFO));
@@ -16,9 +16,6 @@ STARTUP(BLE.selectAntenna(BleAntennaType::EXTERNAL));
 // does not startup connectivity only after Particle.connect() is called
 SYSTEM_MODE(SEMI_AUTOMATIC); 
 SYSTEM_THREAD(ENABLED);
-
-STARTUP(System.on(network_status, led_handle_network_events));
-STARTUP(System.on(cloud_status, led_handle_cloud_events));
 
 STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 
@@ -45,12 +42,10 @@ void setup() {
 
   // just to test ethernet: no credentials is not use wifi
   WiFi.clearCredentials();
-
-  led_init();
-
+  
   reset_reason_log();
 
-  Log.info("%s-%s", completeVersion, System.version().c_str());
+  Log.info("%s-%s-%s", completeVersion, System.version().c_str(), System.deviceID().c_str());
 
   // publish communication information to the particle cloude every 30s
   Particle.publishVitals(30); 
@@ -92,6 +87,8 @@ void setup() {
     }
   }
 
+  Particle.disconnect(CloudDisconnectOptions().clearSession(true));
+
   connectivity_init();
 
   print_state = -1;
@@ -106,9 +103,9 @@ void loop() {
 
   connectivity_connect();
 
-  if((millis()-last_time) >  60000L) {
+  if((millis()-last_time) >  1000L) {
 
-    Log.info("still here...");
+    Log.info("1s loop check");
 
     last_time = millis();
   }
@@ -123,7 +120,7 @@ void loop() {
 
   if(new_print_state != print_state) {
 
-      last_time = millis();
+    last_time = millis();
 
     Log.info("State: %s: Ethernet: %s, WiFi: %s, Cloud: %s",
       connectivity_state_name(connectingState).c_str(),
@@ -134,7 +131,8 @@ void loop() {
     print_state = new_print_state;
 
     // testing: once connected restart and do again
-    if(connectingState == CONNECTIVITY_ETHERNET_CLOUD_CONNECTED) {
+    if((connectingState == CONNECTIVITY_ETHERNET_CLOUD_CONNECTED) ||
+      (connectingState == CONNECTIVITY_WIFI_CLOUD_CONNECTED)) {
 
       Log.info("Connected, restart"); 
       delay(1000);
