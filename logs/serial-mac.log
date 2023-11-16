@@ -1,0 +1,1385 @@
+0000001270 [system] INFO: Device 0a10aced202194944a005484 started
+0000001272 [system] TRACE: Last reset reason: 40 (data: 0x00)
+0000001278 [hal] TRACE: Using external antenna
+0000001892 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001893 [system.nm] TRACE: Interface 4 power state: 1
+0000001897 [system.nm] TRACE: Interface 3 power state: 2
+0000001924 [comm] INFO: channel inited
+0000001971 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000002147 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002279 [app] INFO: Reset: Power down
+0000002295 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002297 [system] INFO: Clearing session data
+0000002301 [app] INFO: Connecting Ethernet
+0000002306 [app] INFO: timeout set to 5000 ms
+0000002308 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002317 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002310 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002332 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002341 [net.ifapi] INFO: Netif en2 state UP
+0000002579 [net.en] TRACE: Closed MACRAW socket
+0000002637 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002638 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000003318 [app] INFO: 1s loop check
+0000003418 [net.en] INFO: Link up
+0000003419 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003422 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000004322 [app] INFO: 1s loop check
+0000004410 [hal] INFO: DNS server list changed
+0000004411 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000004417 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000004432 [app] INFO: Ethernet network connected in 2 s
+0000004522 [app] INFO: Ethernet IP address: 192.168.2.20
+0000004535 [a to 180000 ms
+0000004540 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000004573 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000004771 [system] INFO: Cloud: connecting
+0000004933 [system] INFO: Read Server Address = type:1,domain:$idrticle.io
+0000004974 [system] WARN: Failed to load session data from persistent storage
+0000004979 [system] INFO: Discarding session data
+0000005105 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000005585 [app] INFO: 1s loop check
+0000006641 [app] INFO: 1s loop check
+0000007712 [app] INFO: 1s loop check
+0000008393 [system] TRACE: Address type: 3
+0000008458 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000008502 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000008504 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000008512 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000008518 [system] TRACE: Applying new keepalive interval now
+0000008523 [system] INFO: Cloud socket connected
+0000008556 [system] INFO: Starting handshake: presense_announce=0
+0000008641 [comm.protocol.handshake] INFO: Establish secure connection
+0000008646 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000008747 [app] INFO: 1s loop check
+0000009807 [app] INFO: 1s loop check
+0000010809 [app] INFO: 1s loop check
+0000011818 [app] INFO: 1s loop check
+0000012875 [app] INFO: 1s loop check
+0000013301 [comm.protocol.handshake] INFO: Sending HELLO message
+0000013303 [comm.coap] TRACE: Sending CoAP message
+0000013364 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013719 [comm.coap] TRACE: Received CoAP message
+0000013721 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013726 [comm.protocol.handshake] INFO: Handshake completed
+0000013729 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013737 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013743 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013878 [app] INFO: 1s loop check
+0000014570 [comm.coap] TRACE: Sending CoAP message
+0000014572 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=08 id=2
+0000014622 [system] INFO: Send spark/device/last_reset event
+0000014624 [comm.coap]Sending CoAP message
+0000014629 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=42 token= id=3
+0000014705 [comm.coap] TRACE: Sending CoAP message
+0000014720 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014884 [app] INFO: 1s loop check
+0000014885 [comm.coap] TRACE: Sending CoAP message
+0000014887 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000015031 [comm] INFO: Sending TIME request
+0000015134 [comm.coap] TRACE: Sending CoAP message
+0000015136 [comm.coap] TRACE: CON GET /t size=7 token=09 id=6
+0000015223 [system] INFO: Sending application DESCRIBE
+0000015225 [comm.coap] TRACE: Sending CoAP message
+0000015227 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=0a id=7
+0000015314 [system] INFO: Sending subscriptions
+0000015386 [comm.protocol] INFO: Sending subscriptions
+0000015477 [comm.coap] TRACE: Sending CoAP message
+0000015478 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015621 [comm.coap] TRACE: Sending CoAP message
+0000015623 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015766 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015910 [comm.coap] TRACE: Received CoAP message
+0000015911 [comm.coap] TRACE: ACK 0.00  size=5 token=08 id=2
+0000015909 [app] INFO: 1s loop check
+0000015970 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000016023 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017016 [app] INFO: 1s loop check
+0000018007 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018018 [app] INFO: 1s loop check
+0000018406 [comm.coap] TRACE: Received CoAP message
+0000018408 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000018514 [comm.coap] TRACE: Received CoAP message
+0000018515 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000018621 [comm.coap] TRACE: Received CoAP message
+0000018623 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000018729 [comm.coap] TRACE: Received CoAP message
+0000018730 [comm.coap] TRACE: ACK 2.05  size=10 token=09 id=6
+0000018734 [comm.protocol] INFO: Received TIME response: 1700155553
+0000018843 [comm.coap] TRACE: Received CoAP message
+0000018845 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=48506
+0000018848 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000018856 [comm.coap] TRACE: Sending CoAP message
+0000018859 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48506
+0000018907 [comm.coap] TRACE: Sending CoAP message
+0000018908 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000019023 [app] INFO: 1s loop check
+0000019119 [comm.coap] TRACE: Received CoAP message
+0000019121 [comm.coap] TRACE: ACK 0.00  size=5 token=0a id=7
+0000019126 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000019131 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019245 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019316 [comm.coap] TRACE: Received CoAP message
+0000019318 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000019425 [comm.coap] TRACE: Received CoAP message
+0000019427 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=48507
+0000019434 [comm.coap] TRACE: Sending CoAP message
+0000019439 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48507
+0000019611 [comm.coap] TRACE: Received CoAP message
+0000019613 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000019617 [comm.protocol] TRACE: Updating subscriptions checksum
+0000019622 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019628 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019917 [comm.coap] TRACE: Received CoAP message
+0000019983 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000019988 [system] INFO: All handshake messages have been processed
+0000020053 [app] INFO: 1s loop check
+0000020095 [system] INFO: Cloud connected
+0000020096 [app] INFO: Ethernet cloud connected in 17 s (link: 2 s), (re)connected in 20 s
+0000020102 [app] INFO: State: 'eth cloud connected' (previous: 'eth cloud connecting')
+0000020109 [app] INFO: State: eth cloud connected: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000020118 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001055 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001061 [hal] TRACE: Using external antenna
+0000001675 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001676 [system.nm] TRACE: Interface 4 power state: 1
+0000001679 [system.nm] TRACE: Interface 3 power state: 2
+0000001707 [comm] INFO: channel inited
+0000001754 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001932 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002064 [app] INFO: Reset: software/user (0)
+0000002080 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002082 [system] INFO: Clearing session data
+0000002085 [app] INFO: Connecting Ethernet
+0000002090 [app] INFO: timeout set to 5000 ms
+0000002094 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002099 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002093 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002119 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002125 [net.ifapi] INFO: Netif en2 state UP
+0000002364 [net.en] TRACE: Closed MACRAW socket
+0000002422 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002423 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002855 [net.en] INFO: Link up
+0000002856 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000002862 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003105 [app] INFO: 1s loop check
+0000003639 [hal] INFO: DNS server list changed
+0000003640 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003643 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003661 [app] INFO: Ethernet network connected in 1 s
+0000003732 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003733 [app] INFO: timeout set to 180000 ms
+0000003765 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003776 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003860 [system] INFO: Cloud: connecting
+0000003862 [system] INFO: Read Server Address = type:1,domain:$id.udp.particle.io
+0000003864 [system] WARN: Failed to load session data from persistent storage
+0000003919 [system] INFO: Discarding session data
+0000004317 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004783 [app] INFO: 1s loop check
+0000005786 [app] INFO: 1s loop check
+0000006840 [app] INFO: 1s loop check
+0000007363 [system] TRACE: Address type: 3
+0000007442 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000007444 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000007598 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000007601 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000007625 [system] TRACE: Applying new keepalive interval now
+0000007710 [system] INFO: Cloud socket connected
+0000007754 [system] INFO: Starting handshake: presense_announce=0
+0000007755 [comm.protocol.handshake] INFO: Establish secure connection
+0000007762 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000007905 [app] INFO: 1s loop check
+0000008916 [app] INFO: 1s loop check
+0000009995 [app] INFO: 1s loop check
+0000011000 [app] INFO: 1s loop check
+0000012002 [app] INFO: 1s loop check
+0000012579 [comm.protocol.handshake] INFO: Sending HELLO message
+0000012581 [comm.coap] TRACE: Sending CoAP message
+0000012650 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013007 [app] INFO: 1s loop check
+0000013007 [comm.coap] TRACE: Received CoAP message
+0000013008 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013014 [comm.protocol.handshake] INFO: Handshake completed
+0000013020 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013028 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013033 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013860 [comm.coap] TRACE: Sending CoAP message
+0000013862 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=9b id=2
+0000013913 [system] INFO: Send spark/device/last_reset event
+0000013915 [comm.coap] TRACE: Sending CoAP message
+0000013918 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000014025 [app] INFO: 1s loop check
+0000014078 [comm.coap] TRACE: Sending CoAP message
+0000014079 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014229 [comm.coap] TRACE: Sending CoAP message
+0000014341 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000014430 [comm] INFO: Sending TIME request
+0000014432 [comm.coap] TRACE: Sending CoAP message
+0000014434 [comm.coap] TRACE: CON GET /t size=7 token=9c id=6
+0000014522 [system] INFO: Sending application DESCRIBE
+0000014555 [comm.coap] TRACE: Sending CoAP message
+0000014678 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=9d id=7
+0000014719 [system] INFO: Sending subscriptions
+0000014822 [comm.protocol] INFO: Sending subscriptions
+0000014824 [comm.coap] TRACE: Sending CoAP message
+0000014851 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015008 [comm.coap] TRACE: Sending CoAP message
+0000015111 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015085 [app] INFO: 1s loop check
+0000015114 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015226 [comm.coap] TRACE: Received CoAP message
+0000015311 [comm.coap] TRACE: ACK 0.00  size=5 token=9b id=2
+0000015313 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000015386 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000016168 [app] INFO: 1s loop check
+0000017227 [app] INFO: 1s loop check
+0000017305 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017423 [comm.coap] TRACE: Received CoAP message
+0000017425 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000017531 [comm.coap] TRACE: Received CoAP message
+0000017533 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000017637 [comm.coap] TRACE: Received CoAP message
+0000017639 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000017745 [comm.coap] TRACE: Received CoAP message
+0000017747 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=49093
+0000017753 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000017759 [comm.coap] TRACE: Sending CoAP message
+0000017763 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49093
+0000017813 [comm.coap] TRACE: Sending CoAP message
+0000017814 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000018022 [comm.coap] TRACE: Received CoAP message
+0000018024 [comm.coap] TRACE: ACK 2.05  size=10 token=9c id=6
+0000018030 [comm.protocol] INFO: Received TIME response: 1700155576
+0000018212 [comm.coap] TRACE: Received CoAP message
+0000018214 [comm.coap] TRACE: ACK 0.00  size=5 token=9d id=7
+0000018216 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000018224 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018230 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018229 [app] INFO: 1s loop check
+0000018335 [comm.coap] TRACE: Received CoAP message
+0000018337 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000018441 [comm.coap] TRACE: Received CoAP message
+0000018443 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=49094
+0000018451 [comm.coap] TRACE: Sending CoAP message
+0000018455 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49094
+0000018631 [comm.coap] TRACE: Received CoAP message
+0000018633 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000018637 [comm.protocol] TRACE: Updating subscriptions checksum
+0000018643 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018649 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018753 [comm.coap] TRACE: Received CoAP message
+0000018755 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000018757 [system] INFO: All handshake messages have been processed
+0000018865 [system] INFO: Cloud connected
+0000018866 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000018872 [app] INFO: Connected, restart
+0000001270 [system] INFO: Device 0a10aced202194944a005484 started
+0000001272 [system] TRACE: Last reset reason: 40 (data: 0x00)
+0000001278 [hal] TRACE: Using external antenna
+0000001892 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001893 [system.nm] TRACE: Interface 4 power state: 1
+0000001897 [system.nm] TRACE: Interface 3 power state: 2
+0000001924 [comm] INFO: channel inited
+0000001971 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000002147 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002279 [app] INFO: Reset: Power down
+0000002295 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002297 [system] INFO: Clearing session data
+0000002301 [app] INFO: Connecting Ethernet
+0000002306 [app] INFO: timeout set to 5000 ms
+0000002308 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002317 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002310 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002332 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002341 [net.ifapi] INFO: Netif en2 state UP
+0000002579 [net.en] TRACE: Closed MACRAW socket
+0000002637 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002638 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000003318 [app] INFO: 1s loop check
+0000003418 [net.en] INFO: Link up
+0000003419 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003422 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000004322 [app] INFO: 1s loop check
+0000004410 [hal] INFO: DNS server list changed
+0000004411 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000004417 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000004432 [app] INFO: Ethernet network connected in 2 s
+0000004522 [app] INFO: Ethernet IP address: 192.168.2.20
+0000004535 [a to 180000 ms
+0000004540 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000004573 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000004771 [system] INFO: Cloud: connecting
+0000004933 [system] INFO: Read Server Address = type:1,domain:$idrticle.io
+0000004974 [system] WARN: Failed to load session data from persistent storage
+0000004979 [system] INFO: Discarding session data
+0000005105 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000005585 [app] INFO: 1s loop check
+0000006641 [app] INFO: 1s loop check
+0000007712 [app] INFO: 1s loop check
+0000008393 [system] TRACE: Address type: 3
+0000008458 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000008502 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000008504 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000008512 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000008518 [system] TRACE: Applying new keepalive interval now
+0000008523 [system] INFO: Cloud socket connected
+0000008556 [system] INFO: Starting handshake: presense_announce=0
+0000008641 [comm.protocol.handshake] INFO: Establish secure connection
+0000008646 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000008747 [app] INFO: 1s loop check
+0000009807 [app] INFO: 1s loop check
+0000010809 [app] INFO: 1s loop check
+0000011818 [app] INFO: 1s loop check
+0000012875 [app] INFO: 1s loop check
+0000013301 [comm.protocol.handshake] INFO: Sending HELLO message
+0000013303 [comm.coap] TRACE: Sending CoAP message
+0000013364 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013719 [comm.coap] TRACE: Received CoAP message
+0000013721 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013726 [comm.protocol.handshake] INFO: Handshake completed
+0000013729 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013737 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013743 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013878 [app] INFO: 1s loop check
+0000014570 [comm.coap] TRACE: Sending CoAP message
+0000014572 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=08 id=2
+0000014622 [system] INFO: Send spark/device/last_reset event
+0000014624 [comm.coap]Sending CoAP message
+0000014629 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=42 token= id=3
+0000014705 [comm.coap] TRACE: Sending CoAP message
+0000014720 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014884 [app] INFO: 1s loop check
+0000014885 [comm.coap] TRACE: Sending CoAP message
+0000014887 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000015031 [comm] INFO: Sending TIME request
+0000015134 [comm.coap] TRACE: Sending CoAP message
+0000015136 [comm.coap] TRACE: CON GET /t size=7 token=09 id=6
+0000015223 [system] INFO: Sending application DESCRIBE
+0000015225 [comm.coap] TRACE: Sending CoAP message
+0000015227 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=0a id=7
+0000015314 [system] INFO: Sending subscriptions
+0000015386 [comm.protocol] INFO: Sending subscriptions
+0000015477 [comm.coap] TRACE: Sending CoAP message
+0000015478 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015621 [comm.coap] TRACE: Sending CoAP message
+0000015623 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015766 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015910 [comm.coap] TRACE: Received CoAP message
+0000015911 [comm.coap] TRACE: ACK 0.00  size=5 token=08 id=2
+0000015909 [app] INFO: 1s loop check
+0000015970 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000016023 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017016 [app] INFO: 1s loop check
+0000018007 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018018 [app] INFO: 1s loop check
+0000018406 [comm.coap] TRACE: Received CoAP message
+0000018408 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000018514 [comm.coap] TRACE: Received CoAP message
+0000018515 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000018621 [comm.coap] TRACE: Received CoAP message
+0000018623 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000018729 [comm.coap] TRACE: Received CoAP message
+0000018730 [comm.coap] TRACE: ACK 2.05  size=10 token=09 id=6
+0000018734 [comm.protocol] INFO: Received TIME response: 1700155553
+0000018843 [comm.coap] TRACE: Received CoAP message
+0000018845 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=48506
+0000018848 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000018856 [comm.coap] TRACE: Sending CoAP message
+0000018859 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48506
+0000018907 [comm.coap] TRACE: Sending CoAP message
+0000018908 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000019023 [app] INFO: 1s loop check
+0000019119 [comm.coap] TRACE: Received CoAP message
+0000019121 [comm.coap] TRACE: ACK 0.00  size=5 token=0a id=7
+0000019126 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000019131 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019245 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019316 [comm.coap] TRACE: Received CoAP message
+0000019318 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000019425 [comm.coap] TRACE: Received CoAP message
+0000019427 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=48507
+0000019434 [comm.coap] TRACE: Sending CoAP message
+0000019439 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48507
+0000019611 [comm.coap] TRACE: Received CoAP message
+0000019613 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000019617 [comm.protocol] TRACE: Updating subscriptions checksum
+0000019622 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019628 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019917 [comm.coap] TRACE: Received CoAP message
+0000019983 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000019988 [system] INFO: All handshake messages have been processed
+0000020053 [app] INFO: 1s loop check
+0000020095 [system] INFO: Cloud connected
+0000020096 [app] INFO: Ethernet cloud connected in 17 s (link: 2 s), (re)connected in 20 s
+0000020102 [app] INFO: State: 'eth cloud connected' (previous: 'eth cloud connecting')
+0000020109 [app] INFO: State: eth cloud connected: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000020118 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001052 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001059 [hal] TRACE: Using external antenna
+0000001673 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001674 [system.nm] TRACE: Interface 4 power state: 1
+0000001678 [system.nm] TRACE: Interface 3 power state: 2
+0000001705 [comm] INFO: channel inited
+0000001754 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001932 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002061 [app] INFO: Reset: software/user (0)
+0000002077 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002079 [system] INFO: Clearing session data
+0000002082 [app] INFO: Connecting Ethernet
+0000002087 [app] INFO: timeout set to 5000 ms
+0000002091 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002096 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002090 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002115 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002121 [net.ifapi] INFO: Netif en2 state UP
+0000002361 [net.en] TRACE: Closed MACRAW socket
+0000002419 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002421 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002998 [net.en] INFO: Link up
+0000002998 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003001 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003103 [app] INFO: 1s loop check
+0000003548 [hal] INFO: DNS server list changed
+0000003549 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003552 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003578 [app] INFO: State: eth connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003643 [app] INFO: Ethernet network connected in 1 s
+0000003682 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003687 [app] INFO: timeout set to 180000 ms
+0000003690 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003698 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003900 [system] INFO: Cloud: connecting
+0000003980 [system] INFO: Read Server Address = type:1,domain:$id.udp.particle.io
+0000003983 [system] WARN: Failed to load session data from persistent storage
+0000003989 [system] INFO: Discarding session data
+0000004338 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004699 [app] INFO: 1s loop check
+0000005750 [app] INFO: 1s loop check
+0000006717 [system] TRACE: Address type: 3
+0000006827 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000006828 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000006801 [app] INFO: 1s loop check
+0000006898 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000006906 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000006912 [system] TRACE: Applying new keepalive interval now
+0000006918 [system] INFO: Cloud socket connected
+0000006924 [system] INFO: Starting handshake: presense_announce=0
+0000006929 [comm.protocol.handshake] INFO: Establish secure connection
+0000006936 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000007913 [app] INFO: 1s loop check
+0000008947 [app] INFO: 1s loop check
+0000009949 [app] INFO: 1s loop check
+0000010953 [app] INFO: 1s loop check
+0000011610 [comm.protocol.handshake] INFO: Sending HELLO message
+0000011612 [comm.coap] TRACE: Sending CoAP message
+0000011681 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000012043 [app] INFO: 1s loop check
+0000012046 [comm.coap] TRACE: Received CoAP message
+0000012049 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000012054 [comm.protocol.handshake] INFO: Handshake completed
+0000012060 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000012066 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000012072 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013048 [app] INFO: 1s loop check
+0000013066 [comm.coap] TRACE: Sending CoAP message
+0000013068 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=cb id=2
+0000013121 [system] INFO: Send spark/device/last_reset event
+0000013123 [comm.coap] TRACE: Sending CoAP message
+0000013128 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000013210 [comm.coap] TRACE: Sending CoAP message
+0000013225 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000013385 [comm.coap] TRACE: Sending CoAP message
+0000013496 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000013557 [comm] INFO: Sending TIME request
+0000013635 [comm.coap] TRACE: Sending CoAP message
+0000013637 [comm.coap] TRACE: CON GET /t size=7 token=cc id=6
+0000013732 [system] INFO: Sending application DESCRIBE
+0000013734 [comm.coap] TRACE: Sending CoAP message
+0000013819 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=cd id=7
+0000013822 [system] INFO: Sending subscriptions
+0000013938 [comm.protocol] INFO: Sending subscriptions
+0000014004 [comm.coap] TRACE: Sending CoAP message
+0000014044 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000014064 [app] INFO: 1s loop check
+0000014149 [comm.coap] TRACE: Sending CoAP message
+0000014221 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000014294 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000014438 [comm.coap] TRACE: Received CoAP message
+0000014440 [comm.coap] TRACE: ACK 0.00  size=5 token=cb id=2
+0000014550 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000014551 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000015155 [app] INFO: 1s loop check
+0000016176 [app] INFO: 1s loop check
+0000016208 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000016322 [comm.coap] TRACE: Received CoAP message
+0000016324 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000016434 [comm.coap] TRACE: Received CoAP message
+0000016437 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000016540 [comm.coap] TRACE: Received CoAP message
+0000016542 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000016646 [comm.coap] TRACE: Received CoAP message
+0000016649 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=52027
+0000016654 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000016659 [comm.coap] TRACE: Sending CoAP message
+0000016664 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52027
+0000016711 [comm.coap] TRACE: Sending CoAP message
+0000016713 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000017096 [comm.coap] TRACE: Received CoAP message
+0000017137 [comm.coap] TRACE: ACK 2.05  size=10 token=cc id=6
+0000017206 [comm.protocol] INFO: Received TIME response: 1700155596
+0000017206 [app] INFO: 1s loop check
+0000017209 [comm.coap] TRACE: Received CoAP message
+0000017215 [comm.coap] TRACE: ACK 0.00  size=5 token=cd id=7
+0000017221 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000017227 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017233 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017337 [comm.coap] TRACE: Received CoAP message
+0000017339 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000017444 [comm.coap] TRACE: Received CoAP message
+0000017446 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=52028
+0000017455 [comm.coap] TRACE: Sending CoAP message
+0000017457 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52028
+0000017732 [comm.coap] TRACE: Received CoAP message
+0000017734 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000017739 [comm.protocol] TRACE: Updating subscriptions checksum
+0000017781 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017812 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017915 [comm.coap] TRACE: Received CoAP message
+0000017917 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000017922 [system] INFO: All handshake messages have been processed
+0000018027 [system] INFO: Cloud connected
+0000018028 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000018034 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001055 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001061 [hal] TRACE: Using external antenna
+0000001675 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001676 [system.nm] TRACE: Interface 4 power state: 1
+0000001679 [system.nm] TRACE: Interface 3 power state: 2
+0000001707 [comm] INFO: channel inited
+0000001754 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001932 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002064 [app] INFO: Reset: software/user (0)
+0000002080 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002082 [system] INFO: Clearing session data
+0000002085 [app] INFO: Connecting Ethernet
+0000002090 [app] INFO: timeout set to 5000 ms
+0000002094 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002099 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002093 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002119 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002125 [net.ifapi] INFO: Netif en2 state UP
+0000002364 [net.en] TRACE: Closed MACRAW socket
+0000002422 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002423 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002855 [net.en] INFO: Link up
+0000002856 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000002862 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003105 [app] INFO: 1s loop check
+0000003639 [hal] INFO: DNS server list changed
+0000003640 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003643 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003661 [app] INFO: Ethernet network connected in 1 s
+0000003732 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003733 [app] INFO: timeout set to 180000 ms
+0000003765 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003776 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003860 [system] INFO: Cloud: connecting
+0000003862 [system] INFO: Read Server Address = type:1,domain:$id.udp.particle.io
+0000003864 [system] WARN: Failed to load session data from persistent storage
+0000003919 [system] INFO: Discarding session data
+0000004317 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004783 [app] INFO: 1s loop check
+0000005786 [app] INFO: 1s loop check
+0000006840 [app] INFO: 1s loop check
+0000007363 [system] TRACE: Address type: 3
+0000007442 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000007444 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000007598 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000007601 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000007625 [system] TRACE: Applying new keepalive interval now
+0000007710 [system] INFO: Cloud socket connected
+0000007754 [system] INFO: Starting handshake: presense_announce=0
+0000007755 [comm.protocol.handshake] INFO: Establish secure connection
+0000007762 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000007905 [app] INFO: 1s loop check
+0000008916 [app] INFO: 1s loop check
+0000009995 [app] INFO: 1s loop check
+0000011000 [app] INFO: 1s loop check
+0000012002 [app] INFO: 1s loop check
+0000012579 [comm.protocol.handshake] INFO: Sending HELLO message
+0000012581 [comm.coap] TRACE: Sending CoAP message
+0000012650 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013007 [app] INFO: 1s loop check
+0000013007 [comm.coap] TRACE: Received CoAP message
+0000013008 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013014 [comm.protocol.handshake] INFO: Handshake completed
+0000013020 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013028 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013033 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013860 [comm.coap] TRACE: Sending CoAP message
+0000013862 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=9b id=2
+0000013913 [system] INFO: Send spark/device/last_reset event
+0000013915 [comm.coap] TRACE: Sending CoAP message
+0000013918 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000014025 [app] INFO: 1s loop check
+0000014078 [comm.coap] TRACE: Sending CoAP message
+0000014079 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014229 [comm.coap] TRACE: Sending CoAP message
+0000014341 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000014430 [comm] INFO: Sending TIME request
+0000014432 [comm.coap] TRACE: Sending CoAP message
+0000014434 [comm.coap] TRACE: CON GET /t size=7 token=9c id=6
+0000014522 [system] INFO: Sending application DESCRIBE
+0000014555 [comm.coap] TRACE: Sending CoAP message
+0000014678 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=9d id=7
+0000014719 [system] INFO: Sending subscriptions
+0000014822 [comm.protocol] INFO: Sending subscriptions
+0000014824 [comm.coap] TRACE: Sending CoAP message
+0000014851 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015008 [comm.coap] TRACE: Sending CoAP message
+0000015111 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015085 [app] INFO: 1s loop check
+0000015114 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015226 [comm.coap] TRACE: Received CoAP message
+0000015311 [comm.coap] TRACE: ACK 0.00  size=5 token=9b id=2
+0000015313 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000015386 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000016168 [app] INFO: 1s loop check
+0000017227 [app] INFO: 1s loop check
+0000017305 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017423 [comm.coap] TRACE: Received CoAP message
+0000017425 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000017531 [comm.coap] TRACE: Received CoAP message
+0000017533 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000017637 [comm.coap] TRACE: Received CoAP message
+0000017639 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000017745 [comm.coap] TRACE: Received CoAP message
+0000017747 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=49093
+0000017753 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000017759 [comm.coap] TRACE: Sending CoAP message
+0000017763 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49093
+0000017813 [comm.coap] TRACE: Sending CoAP message
+0000017814 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000018022 [comm.coap] TRACE: Received CoAP message
+0000018024 [comm.coap] TRACE: ACK 2.05  size=10 token=9c id=6
+0000018030 [comm.protocol] INFO: Received TIME response: 1700155576
+0000018212 [comm.coap] TRACE: Received CoAP message
+0000018214 [comm.coap] TRACE: ACK 0.00  size=5 token=9d id=7
+0000018216 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000018224 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018230 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018229 [app] INFO: 1s loop check
+0000018335 [comm.coap] TRACE: Received CoAP message
+0000018337 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000018441 [comm.coap] TRACE: Received CoAP message
+0000018443 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=49094
+0000018451 [comm.coap] TRACE: Sending CoAP message
+0000018455 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49094
+0000018631 [comm.coap] TRACE: Received CoAP message
+0000018633 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000018637 [comm.protocol] TRACE: Updating subscriptions checksum
+0000018643 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018649 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018753 [comm.coap] TRACE: Received CoAP message
+0000018755 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000018757 [system] INFO: All handshake messages have been processed
+0000018865 [system] INFO: Cloud connected
+0000018866 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000018872 [app] INFO: Connected, restart
+0000001270 [system] INFO: Device 0a10aced202194944a005484 started
+0000001272 [system] TRACE: Last reset reason: 40 (data: 0x00)
+0000001278 [hal] TRACE: Using external antenna
+0000001892 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001893 [system.nm] TRACE: Interface 4 power state: 1
+0000001897 [system.nm] TRACE: Interface 3 power state: 2
+0000001924 [comm] INFO: channel inited
+0000001971 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000002147 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002279 [app] INFO: Reset: Power down
+0000002295 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002297 [system] INFO: Clearing session data
+0000002301 [app] INFO: Connecting Ethernet
+0000002306 [app] INFO: timeout set to 5000 ms
+0000002308 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002317 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002310 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002332 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002341 [net.ifapi] INFO: Netif en2 state UP
+0000002579 [net.en] TRACE: Closed MACRAW socket
+0000002637 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002638 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000003318 [app] INFO: 1s loop check
+0000003418 [net.en] INFO: Link up
+0000003419 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003422 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000004322 [app] INFO: 1s loop check
+0000004410 [hal] INFO: DNS server list changed
+0000004411 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000004417 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000004432 [app] INFO: Ethernet network connected in 2 s
+0000004522 [app] INFO: Ethernet IP address: 192.168.2.20
+0000004535 [a to 180000 ms
+0000004540 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000004573 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000004771 [system] INFO: Cloud: connecting
+0000004933 [system] INFO: Read Server Address = type:1,domain:$idrticle.io
+0000004974 [system] WARN: Failed to load session data from persistent storage
+0000004979 [system] INFO: Discarding session data
+0000005105 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000005585 [app] INFO: 1s loop check
+0000006641 [app] INFO: 1s loop check
+0000007712 [app] INFO: 1s loop check
+0000008393 [system] TRACE: Address type: 3
+0000008458 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000008502 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000008504 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000008512 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000008518 [system] TRACE: Applying new keepalive interval now
+0000008523 [system] INFO: Cloud socket connected
+0000008556 [system] INFO: Starting handshake: presense_announce=0
+0000008641 [comm.protocol.handshake] INFO: Establish secure connection
+0000008646 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000008747 [app] INFO: 1s loop check
+0000009807 [app] INFO: 1s loop check
+0000010809 [app] INFO: 1s loop check
+0000011818 [app] INFO: 1s loop check
+0000012875 [app] INFO: 1s loop check
+0000013301 [comm.protocol.handshake] INFO: Sending HELLO message
+0000013303 [comm.coap] TRACE: Sending CoAP message
+0000013364 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013719 [comm.coap] TRACE: Received CoAP message
+0000013721 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013726 [comm.protocol.handshake] INFO: Handshake completed
+0000013729 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013737 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013743 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013878 [app] INFO: 1s loop check
+0000014570 [comm.coap] TRACE: Sending CoAP message
+0000014572 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=08 id=2
+0000014622 [system] INFO: Send spark/device/last_reset event
+0000014624 [comm.coap]Sending CoAP message
+0000014629 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=42 token= id=3
+0000014705 [comm.coap] TRACE: Sending CoAP message
+0000014720 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014884 [app] INFO: 1s loop check
+0000014885 [comm.coap] TRACE: Sending CoAP message
+0000014887 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000015031 [comm] INFO: Sending TIME request
+0000015134 [comm.coap] TRACE: Sending CoAP message
+0000015136 [comm.coap] TRACE: CON GET /t size=7 token=09 id=6
+0000015223 [system] INFO: Sending application DESCRIBE
+0000015225 [comm.coap] TRACE: Sending CoAP message
+0000015227 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=0a id=7
+0000015314 [system] INFO: Sending subscriptions
+0000015386 [comm.protocol] INFO: Sending subscriptions
+0000015477 [comm.coap] TRACE: Sending CoAP message
+0000015478 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015621 [comm.coap] TRACE: Sending CoAP message
+0000015623 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015766 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015910 [comm.coap] TRACE: Received CoAP message
+0000015911 [comm.coap] TRACE: ACK 0.00  size=5 token=08 id=2
+0000015909 [app] INFO: 1s loop check
+0000015970 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000016023 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017016 [app] INFO: 1s loop check
+0000018007 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018018 [app] INFO: 1s loop check
+0000018406 [comm.coap] TRACE: Received CoAP message
+0000018408 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000018514 [comm.coap] TRACE: Received CoAP message
+0000018515 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000018621 [comm.coap] TRACE: Received CoAP message
+0000018623 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000018729 [comm.coap] TRACE: Received CoAP message
+0000018730 [comm.coap] TRACE: ACK 2.05  size=10 token=09 id=6
+0000018734 [comm.protocol] INFO: Received TIME response: 1700155553
+0000018843 [comm.coap] TRACE: Received CoAP message
+0000018845 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=48506
+0000018848 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000018856 [comm.coap] TRACE: Sending CoAP message
+0000018859 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48506
+0000018907 [comm.coap] TRACE: Sending CoAP message
+0000018908 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000019023 [app] INFO: 1s loop check
+0000019119 [comm.coap] TRACE: Received CoAP message
+0000019121 [comm.coap] TRACE: ACK 0.00  size=5 token=0a id=7
+0000019126 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000019131 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019245 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019316 [comm.coap] TRACE: Received CoAP message
+0000019318 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000019425 [comm.coap] TRACE: Received CoAP message
+0000019427 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=48507
+0000019434 [comm.coap] TRACE: Sending CoAP message
+0000019439 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48507
+0000019611 [comm.coap] TRACE: Received CoAP message
+0000019613 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000019617 [comm.protocol] TRACE: Updating subscriptions checksum
+0000019622 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019628 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019917 [comm.coap] TRACE: Received CoAP message
+0000019983 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000019988 [system] INFO: All handshake messages have been processed
+0000020053 [app] INFO: 1s loop check
+0000020095 [system] INFO: Cloud connected
+0000020096 [app] INFO: Ethernet cloud connected in 17 s (link: 2 s), (re)connected in 20 s
+0000020102 [app] INFO: State: 'eth cloud connected' (previous: 'eth cloud connecting')
+0000020109 [app] INFO: State: eth cloud connected: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000020118 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001053 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001060 [hal] TRACE: Using external antenna
+0000001673 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001675 [system.nm] TRACE: Interface 4 power state: 1
+0000001678 [system.nm] TRACE: Interface 3 power state: 2
+0000001706 [comm] INFO: channel inited
+0000001753 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001931 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002063 [app] INFO: Reset: software/user (0)
+0000002079 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002081 [system] INFO: Clearing session data
+0000002084 [app] INFO: Connecting Ethernet
+0000002089 [app] INFO: timeout set to 5000 ms
+0000002092 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002098 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002092 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002118 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002124 [net.ifapi] INFO: Netif en2 state UP
+0000002364 [net.en] TRACE: Closed MACRAW socket
+0000002422 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002423 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002846 [net.en] INFO: Link up
+0000002847 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000002852 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003108 [app] INFO: 1s loop check
+0000003398 [hal] INFO: DNS server list changed
+0000003399 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003402 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003427 [app] INFO: State: eth connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003525 [app] INFO: Ethernet network connected in 1 s
+0000003526 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003563 [system] INFO: Cloud: connecting
+0000003557 [app] INFO: timeout set to 180000 ms
+0000003641 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003668 [system] INFO: Read Server Address = type:1,doma Failed to load session data from persistent storage
+0 [system] INFO: Discarding session data
+0000003758 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003973 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004759 [app] INFO: 1s loop check
+0000005824 [app] INFO: 1s loop check
+0000006180 [system] TRACE: Address type: 3
+0000006290 [system] TRACE: Cloud socket=0, f0000006292 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000006296 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000006306 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000006310 [system] TRACE: Applying new keepalive interval now
+0000006316 [system] INFO: Cloud socket connected
+0000006322 [system] INFO: Starting handshake: presense_announce=0
+0000ake] INFO: Establish secure connection
+0000006332 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000006877 [app] INFO: 1s loop check
+0000007959 [app] INFO: 1s loop check
+0000008978 [app] INFO: 1s loop check
+0000009979 [app] INFO: 1s loop check
+0000010985 [app] INFO: 1s loop check
+0000011204 [comm.protocol.handshake] INFO: Sending HELLO message
+0000011206 [comm.coap] TRACE: Sending CoAP message
+0000011212 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000011777 [comm.coap] TRACE: Received CoAP message
+0000011779 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000011781 [comm.protocol.handshake] INFO: Handshake completed
+0000011787 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000011795 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000011801 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000012058 [app] INFO: 1s loop check
+0000012797 [comm.coap] TRACE: Sending CoAP message
+0000012799 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=c0 id=2
+0000012849 [system] INFO: Send spark/device/last_reset event
+0000012851 [comm.coap] TRACE: Sending CoAP message
+0000012855 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000012934 [comm.coap] TRACE: Sending CoAP message
+0000012954 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000013082 [app] INFO: 1s loop check
+0000013115 [comm.coap] TRACE: Sending CoAP message
+0000013117 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000013288 [comm] INFO: Sending TIME request
+0000013367 [comm.coap] TRACE: Sending CoAP message
+0000013369 [comm.coap] TRACE: CON GET /t size=7 token=c1 id=6
+0000013461 [system] INFO: Sending application DESCRIBE
+0000013464 [comm.coap] TRACE: Sending CoAP message
+0000013517 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=c2 id=7
+0000013553 [system] INFO: Sending subscriptions
+0000013579 [comm.protocol] INFO: Sending subscriptions
+0000013709 [comm.coap] TRACE: Sending CoAP message
+0000013711 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000013854 [comm.coap] TRACE: Sending CoAP message
+0000013856 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000014001 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000014137 [app] INFO: 1s loop check
+0000014144 [comm.coap] TRACE: Received CoAP message
+0000014146 [comm.coap] TRACE: ACK 0.00  size=5 token=c0 id=2
+0000014258 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000014260 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000015145 [app] INFO: 1s loop check
+0000015920 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000016034 [comm.coap] TRACE: Received CoAP message
+0000016036 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000016142 [comm.coap] TRACE: Received CoAP message
+0000016144 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000016147 [app] INFO: 1s loop check
+0000016246 [comm.coap] TRACE: Received CoAP message
+0000016248 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000016352 [comm.coap] TRACE: Received CoAP message
+0000016354 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=52362
+0000016360 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000016366 [comm.coap] TRACE: Sending CoAP message
+0000016370 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52362
+0000016419 [comm.coap] TRACE: Sending CoAP message
+0000016420 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000016626 [comm.coap] TRACE: Received CoAP message
+0000016628 [comm.coap] TRACE: ACK 2.05  size=10 token=c1 id=6
+0000016634 [comm.protocol] INFO: Received TIME response: 1700155616
+0000016893 [comm.coap] TRACE: Received CoAP message
+0000016908 [comm.coap] TRACE: ACK 0.00  size=5 token=c2 id=7
+0000016910 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000016918 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000016924 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017073 [comm.coap] TRACE: Received CoAP message
+0000017075 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000017151 [app] INFO: 1s loop check
+0000017291 [comm.coap] TRACE: Received CoAP message
+0000017293 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=52363
+0000017319 [comm.coap] TRACE: Sending CoAP message
+0000017362 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52363
+0000017534 [comm.coap] TRACE: Received CoAP message
+0000017536 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000017538 [comm.protocol] TRACE: Updating subscriptions checksum
+0000017544 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017552 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017656 [comm.coap] TRACE: Received CoAP message
+0000017658 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000017662 [system] INFO: All handshake messages have been processed
+0000017766 [system] INFO: Cloud connected
+0000017766 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000017773 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001052 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001059 [hal] TRACE: Using external antenna
+0000001673 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001674 [system.nm] TRACE: Interface 4 power state: 1
+0000001678 [system.nm] TRACE: Interface 3 power state: 2
+0000001705 [comm] INFO: channel inited
+0000001754 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001932 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002061 [app] INFO: Reset: software/user (0)
+0000002077 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002079 [system] INFO: Clearing session data
+0000002082 [app] INFO: Connecting Ethernet
+0000002087 [app] INFO: timeout set to 5000 ms
+0000002091 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002096 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002090 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002115 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002121 [net.ifapi] INFO: Netif en2 state UP
+0000002361 [net.en] TRACE: Closed MACRAW socket
+0000002419 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002421 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002998 [net.en] INFO: Link up
+0000002998 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003001 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003103 [app] INFO: 1s loop check
+0000003548 [hal] INFO: DNS server list changed
+0000003549 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003552 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003578 [app] INFO: State: eth connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003643 [app] INFO: Ethernet network connected in 1 s
+0000003682 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003687 [app] INFO: timeout set to 180000 ms
+0000003690 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003698 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003900 [system] INFO: Cloud: connecting
+0000003980 [system] INFO: Read Server Address = type:1,domain:$id.udp.particle.io
+0000003983 [system] WARN: Failed to load session data from persistent storage
+0000003989 [system] INFO: Discarding session data
+0000004338 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004699 [app] INFO: 1s loop check
+0000005750 [app] INFO: 1s loop check
+0000006717 [system] TRACE: Address type: 3
+0000006827 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000006828 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000006801 [app] INFO: 1s loop check
+0000006898 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000006906 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000006912 [system] TRACE: Applying new keepalive interval now
+0000006918 [system] INFO: Cloud socket connected
+0000006924 [system] INFO: Starting handshake: presense_announce=0
+0000006929 [comm.protocol.handshake] INFO: Establish secure connection
+0000006936 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000007913 [app] INFO: 1s loop check
+0000008947 [app] INFO: 1s loop check
+0000009949 [app] INFO: 1s loop check
+0000010953 [app] INFO: 1s loop check
+0000011610 [comm.protocol.handshake] INFO: Sending HELLO message
+0000011612 [comm.coap] TRACE: Sending CoAP message
+0000011681 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000012043 [app] INFO: 1s loop check
+0000012046 [comm.coap] TRACE: Received CoAP message
+0000012049 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000012054 [comm.protocol.handshake] INFO: Handshake completed
+0000012060 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000012066 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000012072 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013048 [app] INFO: 1s loop check
+0000013066 [comm.coap] TRACE: Sending CoAP message
+0000013068 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=cb id=2
+0000013121 [system] INFO: Send spark/device/last_reset event
+0000013123 [comm.coap] TRACE: Sending CoAP message
+0000013128 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000013210 [comm.coap] TRACE: Sending CoAP message
+0000013225 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000013385 [comm.coap] TRACE: Sending CoAP message
+0000013496 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000013557 [comm] INFO: Sending TIME request
+0000013635 [comm.coap] TRACE: Sending CoAP message
+0000013637 [comm.coap] TRACE: CON GET /t size=7 token=cc id=6
+0000013732 [system] INFO: Sending application DESCRIBE
+0000013734 [comm.coap] TRACE: Sending CoAP message
+0000013819 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=cd id=7
+0000013822 [system] INFO: Sending subscriptions
+0000013938 [comm.protocol] INFO: Sending subscriptions
+0000014004 [comm.coap] TRACE: Sending CoAP message
+0000014044 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000014064 [app] INFO: 1s loop check
+0000014149 [comm.coap] TRACE: Sending CoAP message
+0000014221 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000014294 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000014438 [comm.coap] TRACE: Received CoAP message
+0000014440 [comm.coap] TRACE: ACK 0.00  size=5 token=cb id=2
+0000014550 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000014551 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000015155 [app] INFO: 1s loop check
+0000016176 [app] INFO: 1s loop check
+0000016208 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000016322 [comm.coap] TRACE: Received CoAP message
+0000016324 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000016434 [comm.coap] TRACE: Received CoAP message
+0000016437 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000016540 [comm.coap] TRACE: Received CoAP message
+0000016542 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000016646 [comm.coap] TRACE: Received CoAP message
+0000016649 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=52027
+0000016654 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000016659 [comm.coap] TRACE: Sending CoAP message
+0000016664 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52027
+0000016711 [comm.coap] TRACE: Sending CoAP message
+0000016713 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000017096 [comm.coap] TRACE: Received CoAP message
+0000017137 [comm.coap] TRACE: ACK 2.05  size=10 token=cc id=6
+0000017206 [comm.protocol] INFO: Received TIME response: 1700155596
+0000017206 [app] INFO: 1s loop check
+0000017209 [comm.coap] TRACE: Received CoAP message
+0000017215 [comm.coap] TRACE: ACK 0.00  size=5 token=cd id=7
+0000017221 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000017227 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017233 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017337 [comm.coap] TRACE: Received CoAP message
+0000017339 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000017444 [comm.coap] TRACE: Received CoAP message
+0000017446 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=52028
+0000017455 [comm.coap] TRACE: Sending CoAP message
+0000017457 [comm.coap] TRACE: ACK 0.00  size=4 token= id=52028
+0000017732 [comm.coap] TRACE: Received CoAP message
+0000017734 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000017739 [comm.protocol] TRACE: Updating subscriptions checksum
+0000017781 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017812 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017915 [comm.coap] TRACE: Received CoAP message
+0000017917 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000017922 [system] INFO: All handshake messages have been processed
+0000018027 [system] INFO: Cloud connected
+0000018028 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000018034 [app] INFO: Connected, restart
+NFO: Device 0a10aced202194944a005484 started
+0000001055 [system] TRACE: Last reset reason: 140 (data: 0x00)
+0000001061 [hal] TRACE: Using external antenna
+0000001675 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001676 [system.nm] TRACE: Interface 4 power state: 1
+0000001679 [system.nm] TRACE: Interface 3 power state: 2
+0000001707 [comm] INFO: channel inited
+0000001754 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000001932 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002064 [app] INFO: Reset: software/user (0)
+0000002080 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002082 [system] INFO: Clearing session data
+0000002085 [app] INFO: Connecting Ethernet
+0000002090 [app] INFO: timeout set to 5000 ms
+0000002094 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002099 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002093 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002119 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002125 [net.ifapi] INFO: Netif en2 state UP
+0000002364 [net.en] TRACE: Closed MACRAW socket
+0000002422 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002423 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000002855 [net.en] INFO: Link up
+0000002856 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000002862 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000003105 [app] INFO: 1s loop check
+0000003639 [hal] INFO: DNS server list changed
+0000003640 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000003643 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000003661 [app] INFO: Ethernet network connected in 1 s
+0000003732 [app] INFO: Ethernet IP address: 192.168.2.20
+0000003733 [app] INFO: timeout set to 180000 ms
+0000003765 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000003776 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000003860 [system] INFO: Cloud: connecting
+0000003862 [system] INFO: Read Server Address = type:1,domain:$id.udp.particle.io
+0000003864 [system] WARN: Failed to load session data from persistent storage
+0000003919 [system] INFO: Discarding session data
+0000004317 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000004783 [app] INFO: 1s loop check
+0000005786 [app] INFO: 1s loop check
+0000006840 [app] INFO: 1s loop check
+0000007363 [system] TRACE: Address type: 3
+0000007442 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000007444 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000007598 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000007601 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000007625 [system] TRACE: Applying new keepalive interval now
+0000007710 [system] INFO: Cloud socket connected
+0000007754 [system] INFO: Starting handshake: presense_announce=0
+0000007755 [comm.protocol.handshake] INFO: Establish secure connection
+0000007762 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000007905 [app] INFO: 1s loop check
+0000008916 [app] INFO: 1s loop check
+0000009995 [app] INFO: 1s loop check
+0000011000 [app] INFO: 1s loop check
+0000012002 [app] INFO: 1s loop check
+0000012579 [comm.protocol.handshake] INFO: Sending HELLO message
+0000012581 [comm.coap] TRACE: Sending CoAP message
+0000012650 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013007 [app] INFO: 1s loop check
+0000013007 [comm.coap] TRACE: Received CoAP message
+0000013008 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013014 [comm.protocol.handshake] INFO: Handshake completed
+0000013020 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013028 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013033 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013860 [comm.coap] TRACE: Sending CoAP message
+0000013862 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=9b id=2
+0000013913 [system] INFO: Send spark/device/last_reset event
+0000013915 [comm.coap] TRACE: Sending CoAP message
+0000013918 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=36 token= id=3
+0000014025 [app] INFO: 1s loop check
+0000014078 [comm.coap] TRACE: Sending CoAP message
+0000014079 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014229 [comm.coap] TRACE: Sending CoAP message
+0000014341 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000014430 [comm] INFO: Sending TIME request
+0000014432 [comm.coap] TRACE: Sending CoAP message
+0000014434 [comm.coap] TRACE: CON GET /t size=7 token=9c id=6
+0000014522 [system] INFO: Sending application DESCRIBE
+0000014555 [comm.coap] TRACE: Sending CoAP message
+0000014678 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=9d id=7
+0000014719 [system] INFO: Sending subscriptions
+0000014822 [comm.protocol] INFO: Sending subscriptions
+0000014824 [comm.coap] TRACE: Sending CoAP message
+0000014851 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015008 [comm.coap] TRACE: Sending CoAP message
+0000015111 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015085 [app] INFO: 1s loop check
+0000015114 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015226 [comm.coap] TRACE: Received CoAP message
+0000015311 [comm.coap] TRACE: ACK 0.00  size=5 token=9b id=2
+0000015313 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000015386 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000016168 [app] INFO: 1s loop check
+0000017227 [app] INFO: 1s loop check
+0000017305 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000017423 [comm.coap] TRACE: Received CoAP message
+0000017425 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000017531 [comm.coap] TRACE: Received CoAP message
+0000017533 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000017637 [comm.coap] TRACE: Received CoAP message
+0000017639 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000017745 [comm.coap] TRACE: Received CoAP message
+0000017747 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=49093
+0000017753 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000017759 [comm.coap] TRACE: Sending CoAP message
+0000017763 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49093
+0000017813 [comm.coap] TRACE: Sending CoAP message
+0000017814 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000018022 [comm.coap] TRACE: Received CoAP message
+0000018024 [comm.coap] TRACE: ACK 2.05  size=10 token=9c id=6
+0000018030 [comm.protocol] INFO: Received TIME response: 1700155576
+0000018212 [comm.coap] TRACE: Received CoAP message
+0000018214 [comm.coap] TRACE: ACK 0.00  size=5 token=9d id=7
+0000018216 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000018224 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018230 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018229 [app] INFO: 1s loop check
+0000018335 [comm.coap] TRACE: Received CoAP message
+0000018337 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000018441 [comm.coap] TRACE: Received CoAP message
+0000018443 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=49094
+0000018451 [comm.coap] TRACE: Sending CoAP message
+0000018455 [comm.coap] TRACE: ACK 0.00  size=4 token= id=49094
+0000018631 [comm.coap] TRACE: Received CoAP message
+0000018633 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000018637 [comm.protocol] TRACE: Updating subscriptions checksum
+0000018643 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000018649 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018753 [comm.coap] TRACE: Received CoAP message
+0000018755 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000018757 [system] INFO: All handshake messages have been processed
+0000018865 [system] INFO: Cloud connected
+0000018866 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000018872 [app] INFO: Connected, restart
+0000001270 [system] INFO: Device 0a10aced202194944a005484 started
+0000001272 [system] TRACE: Last reset reason: 40 (data: 0x00)
+0000001278 [hal] TRACE: Using external antenna
+0000001892 [system.nm] INFO: State changed: NONE -> DISABLED
+0000001893 [system.nm] TRACE: Interface 4 power state: 1
+0000001897 [system.nm] TRACE: Interface 3 power state: 2
+0000001924 [comm] INFO: channel inited
+0000001971 [ncp.mgr] TRACE: Updated file: /sys/wifi_config.bin
+0000002147 [system.nm] TRACE: Updated file: /sys/network.dat
+0000002279 [app] INFO: Reset: Power down
+0000002295 [app] INFO: 0.0.2-20231116T182326-5.5.0-0a10aced202194944a005484
+0000002297 [system] INFO: Clearing session data
+0000002301 [app] INFO: Connecting Ethernet
+0000002306 [app] INFO: timeout set to 5000 ms
+0000002308 [app] INFO: State: 'eth connecting' (previous: 'unknown')
+0000002317 [app] INFO: State: eth connecting: Ethernet: not ready, WiFi: not ready, Cloud: not connected
+0000002310 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000002332 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000002341 [net.ifapi] INFO: Netif en2 state UP
+0000002579 [net.en] TRACE: Closed MACRAW socket
+0000002637 [net.en] TRACE: Opened MACRAW socket, err = 0
+0000002638 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000003318 [app] INFO: 1s loop check
+0000003418 [net.en] INFO: Link up
+0000003419 [net.ifapi] INFO: Netif en2 link UP, profile=NONE
+0000003422 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000004322 [app] INFO: 1s loop check
+0000004410 [hal] INFO: DNS server list changed
+0000004411 [net.ifapi] TRACE: Netif en2 ipv4 configuration changed
+0000004417 [system.nm] INFO: State changed: IFACE_LINK_UP -> IP_CONFIGURED
+0000004432 [app] INFO: Ethernet network connected in 2 s
+0000004522 [app] INFO: Ethernet IP address: 192.168.2.20
+0000004535 [a to 180000 ms
+0000004540 [app] INFO: State: 'eth cloud connecting' (previous: 'eth connecting')
+0000004573 [app] INFO: State: eth cloud connecting: Ethernet: ready, WiFi: not ready, Cloud: not connected
+0000004771 [system] INFO: Cloud: connecting
+0000004933 [system] INFO: Read Server Address = type:1,domain:$idrticle.io
+0000004974 [system] WARN: Failed to load session data from persistent storage
+0000004979 [system] INFO: Discarding session data
+0000005105 [system] TRACE: Resolving 0a10aced202194944a005484.v5.udp.particle.io#5684
+0000005585 [app] INFO: 1s loop check
+0000006641 [app] INFO: 1s loop check
+0000007712 [app] INFO: 1s loop check
+0000008393 [system] TRACE: Address type: 3
+0000008458 [system] TRACE: Cloud socket=0, family=2, type=2, protocol=17
+0000008502 [system] INFO: Cloud socket=0, connecting to 18.213.90.196#5684
+0000008504 [system] TRACE: Cloud socket=0, connected to 18.213.90.196#5684
+0000008512 [system] TRACE: Updating cloud keepalive for AF_INET: 25000 -> 25000
+0000008518 [system] TRACE: Applying new keepalive interval now
+0000008523 [system] INFO: Cloud socket connected
+0000008556 [system] INFO: Starting handshake: presense_announce=0
+0000008641 [comm.protocol.handshake] INFO: Establish secure connection
+0000008646 [comm.dtls] INFO: (CMPL,RENEG,NO_SESS,ERR) restoreStatus=2
+0000008747 [app] INFO: 1s loop check
+0000009807 [app] INFO: 1s loop check
+0000010809 [app] INFO: 1s loop check
+0000011818 [app] INFO: 1s loop check
+0000012875 [app] INFO: 1s loop check
+0000013301 [comm.protocol.handshake] INFO: Sending HELLO message
+0000013303 [comm.coap] TRACE: Sending CoAP message
+0000013364 [comm.coap] TRACE: CON POST /h size=39 token= id=1
+0000013719 [comm.coap] TRACE: Received CoAP message
+0000013721 [comm.coap] TRACE: ACK 0.00  size=4 token= id=1
+0000013726 [comm.protocol.handshake] INFO: Handshake completed
+0000013729 [comm.protocol.handshake] TRACE: Updating cached session parameters
+0000013737 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000013743 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000013878 [app] INFO: 1s loop check
+0000014570 [comm.coap] TRACE: Sending CoAP message
+0000014572 [comm.coap] TRACE: CON POST /d?\x01 size=179 token=08 id=2
+0000014622 [system] INFO: Send spark/device/last_reset event
+0000014624 [comm.coap]Sending CoAP message
+0000014629 [comm.coap] TRACE: CON POST /E/spark/device/last_reset size=42 token= id=3
+0000014705 [comm.coap] TRACE: Sending CoAP message
+0000014720 [comm.coap] TRACE: CON POST /E/particle/device/updates/enabled size=44 token= id=4
+0000014884 [app] INFO: 1s loop check
+0000014885 [comm.coap] TRACE: Sending CoAP message
+0000014887 [comm.coap] TRACE: CON POST /E/particle/device/updates/forced size=44 token= id=5
+0000015031 [comm] INFO: Sending TIME request
+0000015134 [comm.coap] TRACE: Sending CoAP message
+0000015136 [comm.coap] TRACE: CON GET /t size=7 token=09 id=6
+0000015223 [system] INFO: Sending application DESCRIBE
+0000015225 [comm.coap] TRACE: Sending CoAP message
+0000015227 [comm.coap] TRACE: CON POST /d?\x02 size=25 token=0a id=7
+0000015314 [system] INFO: Sending subscriptions
+0000015386 [comm.protocol] INFO: Sending subscriptions
+0000015477 [comm.coap] TRACE: Sending CoAP message
+0000015478 [comm.coap] TRACE: CON GET /e/particle?u size=17 token= id=8
+0000015621 [comm.coap] TRACE: Sending CoAP message
+0000015623 [comm.coap] TRACE: CON GET /e/spark?u size=14 token= id=9
+0000015766 [system] TRACE: Waiting until all handshake messages are processed by the protocol layer
+0000015910 [comm.coap] TRACE: Received CoAP message
+0000015911 [comm.coap] TRACE: ACK 0.00  size=5 token=08 id=2
+0000015909 [app] INFO: 1s loop check
+0000015970 [comm.protocol] TRACE: Updating system DESCRIBE checksum
+0000016023 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000017016 [app] INFO: 1s loop check
+0000018007 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000018018 [app] INFO: 1s loop check
+0000018406 [comm.coap] TRACE: Received CoAP message
+0000018408 [comm.coap] TRACE: ACK 0.00  size=4 token= id=3
+0000018514 [comm.coap] TRACE: Received CoAP message
+0000018515 [comm.coap] TRACE: ACK 0.00  size=4 token= id=4
+0000018621 [comm.coap] TRACE: Received CoAP message
+0000018623 [comm.coap] TRACE: ACK 0.00  size=4 token= id=5
+0000018729 [comm.coap] TRACE: Received CoAP message
+0000018730 [comm.coap] TRACE: ACK 2.05  size=10 token=09 id=6
+0000018734 [comm.protocol] INFO: Received TIME response: 1700155553
+0000018843 [comm.coap] TRACE: Received CoAP message
+0000018845 [comm.coap] TRACE: CON GET /d?\x04 size=9 token=01 id=48506
+0000018848 [comm.protocol] INFO: Received DESCRIBE request; flags: 0x04
+0000018856 [comm.coap] TRACE: Sending CoAP message
+0000018859 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48506
+0000018907 [comm.coap] TRACE: Sending CoAP message
+0000018908 [comm.coap] TRACE: CON 2.05  size=151 token=01 id=10
+0000019023 [app] INFO: 1s loop check
+0000019119 [comm.coap] TRACE: Received CoAP message
+0000019121 [comm.coap] TRACE: ACK 0.00  size=5 token=0a id=7
+0000019126 [comm.protocol] TRACE: Updating application DESCRIBE checksum
+0000019131 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019245 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019316 [comm.coap] TRACE: Received CoAP message
+0000019318 [comm.coap] TRACE: ACK 0.00  size=4 token= id=8
+0000019425 [comm.coap] TRACE: Received CoAP message
+0000019427 [comm.coap] TRACE: CON POST /E/particle/device/updates/pending size=47 token=02 id=48507
+0000019434 [comm.coap] TRACE: Sending CoAP message
+0000019439 [comm.coap] TRACE: ACK 0.00  size=4 token= id=48507
+0000019611 [comm.coap] TRACE: Received CoAP message
+0000019613 [comm.coap] TRACE: ACK 0.00  size=4 token= id=9
+0000019617 [comm.protocol] TRACE: Updating subscriptions checksum
+0000019622 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 4
+0000019628 [comm.dtls] INFO: session cmd (CLS,DIS,MOV,LOD,SAV): 3
+0000019917 [comm.coap] TRACE: Received CoAP message
+0000019983 [comm.coap] TRACE: ACK 0.00  size=4 token= id=10
+0000019988 [system] INFO: All handshake messages have been processed
+0000020053 [app] INFO: 1s loop check
+0000020095 [system] INFO: Cloud connected
+0000020096 [app] INFO: Ethernet cloud connected in 17 s (link: 2 s), (re)connected in 20 s
+0000020102 [app] INFO: State: 'eth cloud connected' (previous: 'eth cloud connecting')
+0000020109 [app] INFO: State: eth cloud connected: Ethernet: ready, WiFi: not ready, Cloud: connected
+0000020118 [app] INFO: Connected, restart
+
